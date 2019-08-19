@@ -1,0 +1,139 @@
+.modalcontent {
+  color: white;
+  position: relative;
+  top: 10%;
+  text-align: center;
+  font-family: 'MedievalSharp', cursive;
+  margin-bottom: 40px;
+}
+.modalcontent .imgBlock {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -20%);
+  -ms-transform: translate(-50%, -20%);
+  transform: translate(-50%, -20%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 400px;
+  height: 100%;
+}
+.modalcontent .imgBlock img {
+  width: 400px;
+  -webkit-filter: brightness(100%);
+  filter: brightness(100%);
+  -webkit-transition: all linear 0.15s;
+  -o-transition: all linear 0.15s;
+  transition: all linear 0.15s;
+}
+.modalcontent .monsterTitle {
+  font-family: 'MedievalSharp', cursive;
+  margin-bottom: 0;
+}
+.modalcontent .monsterDescription {
+  font-size: 14px;
+  color: rgba(208, 238, 29, 1);
+}
+.modalcontent .monsterFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: 15px;
+  padding-top: 5px;
+  border-top: dotted rgba(208, 238, 29, 0.3);
+  border-width: thin;
+}
+.modalcontent .monsterFlex .iconElements {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  margin-left: 5px;
+}
+.modalcontent .monsterFlex .monsterAttribute {
+  color: rgba(208, 238, 29, 1);
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  font-weight: bolder;
+}
+.modalcontent .monsterFlex .itemsAttribute {
+  color: rgba(208, 238, 29, 0.8);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+.modalcontent .monsterFlex .flexProtect {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+/* THIS IS FOR PROPER ALIGNMENT */
+.protectAlign {
+  position: relative;
+  text-align: left;
+  -webkit-transform: translate(-60px, 0);
+  -ms-transform: translate(-60px, 0);
+  transform: translate(-60px, 0);
+}
+
+.protectAlignItems {
+  position: relative;
+  text-align: left;
+  -webkit-transform: translate(-30px, 0);
+  -ms-transform: translate(-30px, 0);
+  transform: translate(-30px, 0);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* This is for RATING */
+.react-rater {
+  padding-left: 10px;
+}
+.react-rater-star.is-active {
+  color: goldenrod;
+}
+.is-disabled {
+  color: transparent;
+}
+@media (max-width: 500px) {
+  .modalcontent .imgBlock img {
+    width: 300px;
+    -webkit-filter: brightness(50%);
+    filter: brightness(50%);
+    -webkit-transition: all linear 0.15s;
+    -o-transition: all linear 0.15s;
+    transition: all linear 0.15s;
+  }
+}
+@media (max-width: 451px) {
+  .modalcontent {
+    margin-bottom: 80px;
+  }
+}

@@ -1,0 +1,234 @@
+* {
+  -webkit-box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  list-style: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/*NOTE SCROLLBAR MANIPULATION */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(208, 238, 29, 0.9);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(208, 238, 29, 1);
+}
+/* -------------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+  position: relative;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100%;
+}
+body {
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin: 0px;
+  position: relative;
+  min-height: 100%;
+  height: auto;
+  background: black;
+  /* -------------------------------------------------------------------------- */
+  /* NOTE BODY BACKGROUND */
+  /* background: #000;
+  background: -webkit-linear-gradient(to bottom, #000, #d6a4a4);
+  background: linear-gradient(to bottom, #000, #d6a4a4); */
+  /* -------------------------------------------------------------------------- */
+}
+
+.noScroll {
+  overflow-y: hidden;
+}
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  text-align: center;
+}
+.loader .zoomTool {
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
+}
+.loader svg {
+  width: 150px;
+  height: 150px;
+  opacity: 0.2;
+  -webkit-animation: bulbGlitch 5s linear 1s forwards;
+  animation: bulbGlitch 5s linear 1s forwards;
+}
+@-webkit-keyframes bulbGlitch {
+  0% {
+    opacity: 0.2;
+  }
+  1% {
+    opacity: 1;
+  }
+  2% {
+    opacity: 0.2;
+  }
+  3% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.2;
+  }
+  5% {
+    opacity: 1;
+  }
+  6% {
+    opacity: 0.2;
+  }
+  15% {
+    opacity: 0.2;
+  }
+  16% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 0.2;
+  }
+  18% {
+    opacity: 1;
+  }
+  19% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes bulbGlitch {
+  0% {
+    opacity: 0.2;
+  }
+  1% {
+    opacity: 1;
+  }
+  2% {
+    opacity: 0.2;
+  }
+  3% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.2;
+  }
+  5% {
+    opacity: 1;
+  }
+  6% {
+    opacity: 0.2;
+  }
+  15% {
+    opacity: 0.2;
+  }
+  16% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 0.2;
+  }
+  18% {
+    opacity: 1;
+  }
+  19% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.loader .progress {
+  width: 200px;
+  height: 2px;
+  background: transparent;
+  margin: 50px auto;
+  border: none;
+}
+.loader .progress span {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  background: rgb(208, 239, 28);
+  width: 0px;
+  height: 2px;
+  -webkit-animation: progressAnim 1s linear 1s forwards;
+  animation: progressAnim 1s linear 1s forwards;
+}
+
+@-webkit-keyframes progressAnim {
+  0% {
+    width: 0px;
+  }
+  3% {
+    width: 0px;
+  }
+
+  15% {
+    width: 100px;
+  }
+
+  70% {
+    width: 100px;
+  }
+
+  100% {
+    width: 200px;
+  }
+}
+
+@keyframes progressAnim {
+  0% {
+    width: 0px;
+  }
+  3% {
+    width: 0px;
+  }
+
+  15% {
+    width: 100px;
+  }
+
+  70% {
+    width: 100px;
+  }
+
+  100% {
+    width: 200px;
+  }
+}
+.loader-hide {
+  visibility: hidden;
+  display: none;
+}

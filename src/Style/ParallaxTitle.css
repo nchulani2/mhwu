@@ -1,0 +1,268 @@
+.figureEle {
+  position: relative;
+  height: 120vh;
+  overflow: hidden;
+  margin: 0;
+  z-index: -10;
+}
+.rellax {
+  height: 100vh;
+  width: 100vw;
+}
+.rellax .parallax {
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+}
+/* -------------------------------------------------------------------------- */
+/* THIS IS MY IMAGE GALLERY FADE EFFECT PARALLAX SLIDESHOW! AWESOME! */
+.rellax .parallax li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: -10;
+  -webkit-filter: brightness(100%);
+  filter: brightness(100%);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  /* MASK image to fade them out at a particular area*/
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(45%, rgba(0, 0, 0, 1)),
+    color-stop(90%, rgba(0, 0, 0, 0))
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 45%,
+    rgba(0, 0, 0, 0) 90%
+  );
+  mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(45%, rgba(0, 0, 0, 1)),
+    color-stop(90%, rgba(0, 0, 0, 0))
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 45%,
+    rgba(0, 0, 0, 0) 90%
+  );
+
+  -webkit-animation: imageAnimation 75s linear infinite;
+
+  animation: imageAnimation 75s linear infinite;
+}
+.rellax .parallax li:nth-child(1) {
+  background-image: url('../Images/Image_mhw2.jpg');
+}
+
+.rellax .parallax li:nth-child(2) {
+  background-image: url('../Images/Image_mhw1.jpg');
+  -webkit-animation-delay: 15s;
+  animation-delay: 15s;
+}
+
+.rellax .parallax li:nth-child(3) {
+  background-image: url('../Images/Image_mhw3.jpg');
+  -webkit-animation-delay: 30s;
+  animation-delay: 30s;
+}
+.rellax .parallax li:nth-child(4) {
+  background-image: url('../Images/Image_mhw4.jpg');
+  -webkit-animation-delay: 45s;
+  animation-delay: 45s;
+}
+
+.rellax .parallax li:nth-child(5) {
+  background-image: url('../Images/Image_mhw5.jpg');
+  -webkit-animation-delay: 60s;
+  animation-delay: 60s;
+}
+@-webkit-keyframes imageAnimation {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  5% {
+    opacity: 0.5;
+  }
+  10% {
+    opacity: 1;
+  }
+
+  20% {
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  29% {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+  }
+  30% {
+    opacity: 0;
+  }
+}
+@keyframes imageAnimation {
+  0% {
+    opacity: 0;
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  5% {
+    opacity: 0.5;
+  }
+  10% {
+    opacity: 1;
+  }
+
+  20% {
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  29% {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+  }
+  30% {
+    opacity: 0;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+
+.rellax .parallax {
+  -webkit-filter: brightness(100%);
+  filter: brightness(100%);
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.flexCont {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  width: 320px;
+  height: 100%;
+  text-align: center;
+  font-weight: 800;
+  font-family: 'MedievalSharp', cursive;
+  -webkit-transition: all linear 0.15s;
+  -o-transition: all linear 0.15s;
+  transition: all linear 0.15s;
+  z-index: 99;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.flexCont .titleLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 282px;
+  height: 400px;
+  -webkit-transition: all linear 0.15s;
+  -o-transition: all linear 0.15s;
+  transition: all linear 0.15s;
+  opacity: 0.2;
+  -webkit-filter: drop-shadow(0px 0px 0px #fff);
+  filter: drop-shadow(0px 0px 0px #fff);
+  -webkit-animation: dropEffect 5s linear infinite forwards;
+  animation: dropEffect 5s linear infinite forwards;
+}
+@-webkit-keyframes dropEffect {
+  0% {
+    -webkit-filter: drop-shadow(0px 0px 0px #fff);
+    filter: drop-shadow(0px 0px 0px #fff);
+    opacity: 0.2;
+  }
+  50% {
+    -webkit-filter: drop-shadow(0px 0px 1px #fff);
+    filter: drop-shadow(0px 0px 1px #fff);
+    opacity: 0.4;
+  }
+
+  100% {
+    -webkit-filter: drop-shadow(0px 0px 0px #fff);
+    filter: drop-shadow(0px 0px 0px #fff);
+    opacity: 0.2;
+  }
+}
+@keyframes dropEffect {
+  0% {
+    -webkit-filter: drop-shadow(0px 0px 0px #fff);
+    filter: drop-shadow(0px 0px 0px #fff);
+    opacity: 0.2;
+  }
+  50% {
+    -webkit-filter: drop-shadow(0px 0px 1px #fff);
+    filter: drop-shadow(0px 0px 1px #fff);
+    opacity: 0.4;
+  }
+
+  100% {
+    -webkit-filter: drop-shadow(0px 0px 0px #fff);
+    filter: drop-shadow(0px 0px 0px #fff);
+    opacity: 0.2;
+  }
+}
+.flexCont .details {
+  width: 100%;
+  -webkit-transition: all linear 0.15s;
+  -o-transition: all linear 0.15s;
+  transition: all linear 0.15s;
+}
+
+@media (min-height: 1000px) {
+  .rellax .parallax li {
+    background-size: 100% 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .rellax .parallax li {
+    background-size: 1000px 100%;
+  }
+}
+@media (max-width: 499px) {
+  .flexCont .details {
+    width: 80%;
+    -webkit-transition: all linear 0.15s;
+    -o-transition: all linear 0.15s;
+    transition: all linear 0.15s;
+  }
+}
