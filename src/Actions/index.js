@@ -25,20 +25,6 @@ const addIcon = monsters => {
   });
 };
 
-// const addElements = (monster)=>{
-//   if (monster.elements.length === 0) return;
-//   else {
-//     monster.elements.forEach(element => {
-//       Object.assign(
-//         element,
-//         _.chain(ElementalList)
-//           .find({[0]: 'fire'})
-//           .value()
-//       );
-//     });
-//   }
-// }
-
 export const getSmallMonsters = () => async dispatch => {
   const response = await monsterhunter.get('/monsters?q={"type":"small"}');
   const monsters = _.chain(response.data)
@@ -51,12 +37,11 @@ export const getSmallMonsters = () => async dispatch => {
 
 export const getLargeMonsters = () => async dispatch => {
   const response = await monsterhunter.get('/monsters?q={"type":"large"}');
+  console.log(response);
   const monsters = _.chain(response.data)
     .sortBy('name')
     .value();
   addIcon(monsters);
-  // monsters.forEach(monster=>{
-  //   addElements(monster);
-  // })
+
   dispatch({ type: 'GET_LARGE', payload: monsters });
 };
