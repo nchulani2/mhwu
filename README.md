@@ -2,7 +2,7 @@
 
 **MHW Monsties is a web application built with the React framework and Redux**
 
-**A running demo of the app can be found here at - [MHWMonsties](https://mhwmonsties.netlify.com/)**
+**A running demo of the app can be found here at - [MHWU](https://mhwu.netlify.com/)**
 
 ![mhwmonsties](https://github.com/nchulani2/mhwmonsties/blob/master/mhwmonsties.gif)
 
