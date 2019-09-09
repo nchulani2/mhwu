@@ -63,7 +63,7 @@ class MonsterContent extends Component {
             <tr>
               <th className="tableHeaders">Type</th>
               <td className="tableInfos">
-                {monstie.type ? this.upperCaseFirst(monstie.type) : 'Unknown'}
+                {monstie.type ? this.upperCaseFirst(monstie.type) : 'N/a'}
               </td>
             </tr>
           </tbody>
@@ -74,7 +74,7 @@ class MonsterContent extends Component {
               <td
                 className="tableInfos"
                 style={{ textTransform: 'capitalize' }}>
-                {monstie.species ? monstie.species : 'Unknown'}
+                {monstie.species ? monstie.species : 'N/a'}
               </td>
             </tr>
           </tbody>
@@ -86,7 +86,9 @@ class MonsterContent extends Component {
                 rowSpan={
                   monstie.elements.length !== 0
                     ? monstie.elements.length + 1
-                    : monstie.elements.length
+                    : window.innerWidth > 499
+                    ? monstie.elements.length
+                    : monstie.elements.length + 1
                 }>
                 Elements
               </th>
@@ -99,7 +101,7 @@ class MonsterContent extends Component {
               ))
             ) : (
               <tr>
-                <td className="tableInfos">No Elements</td>
+                <td className="tableInfos">N/a</td>
               </tr>
             )}
           </tbody>
@@ -130,7 +132,7 @@ class MonsterContent extends Component {
               ))
             ) : (
               <tr>
-                <td className="tableInfos">No Ailments</td>
+                <td className="tableInfos">N/a</td>
               </tr>
             )}
           </tbody>
@@ -250,7 +252,7 @@ class MonsterContent extends Component {
               ))
             ) : (
               <tr>
-                <td className="tableInfos">No Resistances</td>
+                <td className="tableInfos">N/a</td>
               </tr>
             )}
           </tbody>
@@ -277,7 +279,7 @@ class MonsterContent extends Component {
               ))
             ) : (
               <tr>
-                <td className="tableInfos">No Locations</td>
+                <td className="tableInfos">N/a</td>
               </tr>
             )}
           </tbody>
