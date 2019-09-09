@@ -1,6 +1,6 @@
-/   /index.html 200
-/about  /about  200
-/skills /skills 200
-/monsters   /monsters 200
-/monsters/:id /monsters/:id 200
-/armor /armor 200
+/   /https://mhwu.netlify.com 200
+/about  /https://mhwu.netlify.com/about  200
+/skills /https://mhwu.netlify.com/skills 200
+/monsters   /https://mhwu.netlify.com/monsters 200
+/monsters/:id https://mhwu.netlify.com/monsters/:id 200
+/armor /https://mhwu.netlify.com/armor 200
