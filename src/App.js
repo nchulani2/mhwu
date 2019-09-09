@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import Nav from './Components/Nav';
 
 import Home from './Pages/Home';
@@ -14,13 +14,15 @@ const App = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={Home}></Route>
-        <Route path="/about" component={About}></Route>
-        <Route path="/skills" component={Skills}></Route>
-        <Route exact path="/monsters" component={Monsters}></Route>
-        <Route path={`/monsters/:monsterId`} component={Monster}></Route>
-        <Route path="/armor" component={Armor}></Route>
-        <Route component={Error}></Route>
+        <Route exact path="/" component={withRouter(Home)}></Route>
+        <Route path="/about" component={withRouter(About)}></Route>
+        <Route path="/skills" component={withRouter(Skills)}></Route>
+        <Route exact path="/monsters" component={withRouter(Monsters)}></Route>
+        <Route
+          path={`/monsters/:monsterId`}
+          component={withRouter(Monster)}></Route>
+        <Route path="/armor" component={withRouter(Armor)}></Route>
+        <Route component={withRouter(Error)}></Route>
       </Switch>
       <Nav />
     </div>
