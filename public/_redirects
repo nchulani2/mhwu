@@ -1,6 +1,6 @@
-/   / 301
-/about  /about  301
-/skills /skills 301
-/monsters   /monsters 301
-/monsters/:id /monsters/:id 301
-/armor /armor 301
+/home   / 301
+/info  /about  301
+/skill /skills 301
+/monster   /monsters 301
+/monster/:id /monsters/:id 301
+/armorsets /armor 301
