@@ -3,7 +3,6 @@ import RouteTitle from '../Components/RouteTitle';
 import Loading from '../Components/Loading';
 import InputFilter from '../Components/InputFilter';
 import SkillsList from '../Components/SkillsList';
-import RouteButton from '../Components/RouteButton';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSkills } from '../Actions';
@@ -46,21 +45,6 @@ class Skills extends Component {
           width: '100%',
           height: loading ? '100vh' : '100%'
         }}>
-        <div
-          style={{
-            width: '50px',
-            position: 'fixed',
-            left: '5%',
-            top: '3%',
-            zIndex: '10',
-            transform: 'translate(-5%,-3%)'
-          }}>
-          <RouteButton
-            buttonLink=""
-            animDelay="0s"
-            background="#262626"
-            buttonText="🢤"></RouteButton>
-        </div>
         <RouteTitle titleText="skills"></RouteTitle>
         {skillData.length !== 0 && !loading ? (
           <div style={{ padding: '80px 0' }}>

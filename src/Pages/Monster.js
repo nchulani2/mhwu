@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Loading from '../Components/Loading';
 import MonsterContent from '../Components/MonsterContent.js';
-import RouteButton from '../Components/RouteButton';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSpecMonster } from '../Actions';
@@ -25,20 +24,6 @@ class Monster extends Component {
         {monsterData.length !== 0 && !loading ? (
           <div>
             <MonsterContent monster={monsterData}></MonsterContent>
-            <div
-              style={{
-                width: '50px',
-                position: 'fixed',
-                left: '5%',
-                top: '3%',
-                transform: 'translate(-5%,-3%)'
-              }}>
-              <RouteButton
-                buttonLink="monsters"
-                animDelay="0s"
-                background="#262626"
-                buttonText="🢤"></RouteButton>
-            </div>
           </div>
         ) : (
           <Loading loadingText="monstie"></Loading>

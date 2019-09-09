@@ -67,6 +67,9 @@ body {
   padding: 25px 0 70px 0;
   animation-delay: 0.2s;
 }
+.monsterContent .tableHoc {
+  margin: 0 auto 50px auto;
+}
 .monsterContent .monsterTitle {
   font-size: 30px;
   line-height: 30px;
@@ -102,7 +105,7 @@ body {
 
 .monsterContent table .tableHeaders {
   text-transform: uppercase;
-  width: 60%;
+  width: 50%;
   color: rgba(208, 238, 29, 1);
   font-size: 16px;
 }
@@ -153,7 +156,7 @@ body {
 }
 .monsterContent table .rewardInfos {
   width: 100%;
-  text-align: justify;
+  text-align: left;
 }
 
 /* This is for RATING */

@@ -57,7 +57,7 @@ class MonsterContent extends Component {
         <div className="imgBlock">
           <img src={monstie.image} alt={'A monster from MHW'} />
         </div>
-        <table style={{ width: '100%', marginBottom: '50px' }}>
+        <table className="tableHoc">
           {/* NOTE TYPE */}
           <tbody style={{ borderTop: '2px solid rgba(208, 238, 29, 1)' }}>
             <tr>
@@ -247,11 +247,7 @@ class MonsterContent extends Component {
         </table>
 
         {/*  NOTE REWARDS */}
-        <table
-          style={{
-            width: '100%',
-            marginBottom: '50px'
-          }}>
+        <table className="tableHoc">
           <caption className="rewardCaption">rewards [low]</caption>
           <tbody id="rewardTr">
             <tr>
@@ -275,10 +271,7 @@ class MonsterContent extends Component {
           </tbody>
         </table>
 
-        <table
-          style={{
-            width: '100%'
-          }}>
+        <table className="tableHoc">
           <caption className="rewardCaption">rewards [high]</caption>
           <tbody id="rewardTr">
             <tr>

@@ -4,7 +4,6 @@ import MonsterList from '../Components/MonsterList';
 import Loading from '../Components/Loading';
 import RouteTitle from '../Components/RouteTitle';
 import InputFilter from '../Components/InputFilter';
-import RouteButton from '../Components/RouteButton';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getLargeMonsters } from '../Actions';
@@ -66,21 +65,6 @@ class Monsters extends Component {
           height: loading ? '100vh' : '100%',
           padding: loading ? '0px' : '80px 0px'
         }}>
-        <div
-          style={{
-            width: '50px',
-            position: 'fixed',
-            left: '5%',
-            top: '3%',
-            zIndex: '10',
-            transform: 'translate(-5%,-3%)'
-          }}>
-          <RouteButton
-            buttonLink=""
-            animDelay="0s"
-            background="#262626"
-            buttonText="🢤"></RouteButton>
-        </div>
         <RouteTitle titleText="monsters"></RouteTitle>
 
         <div style={{ ...this.apiStyle }}>
@@ -98,6 +82,18 @@ class Monsters extends Component {
             <InputFilter
               filterResults={this.filterMonstersResults}
               placeholderText="monster"></InputFilter>
+            <div
+              style={{
+                color: 'white',
+                textAlign: 'center',
+                fontFamily: 'MedievalSharp, cursive',
+                fontSize: '15px',
+                letterSpacing: '1px',
+                padding: '0 20px 20px 20px'
+              }}>
+              For mobile users, double tap to view a monster's particular
+              information
+            </div>
             <MonsterList monsters={monsterData}></MonsterList>
           </div>
         ) : (
