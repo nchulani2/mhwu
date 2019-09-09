@@ -1,0 +1,47 @@
+#buttonEle {
+  padding: 15px;
+  font-family: 'MedievalSharp', cursive;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 10px 20px;
+  color: white;
+  border: 1px solid #363636;
+  border-radius: 4px;
+  font-size: 15px;
+  background: #363636;
+  -webkit-transition: all linear 0.15s;
+  -o-transition: all linear 0.15s;
+  transition: all linear 0.15s;
+  outline: none;
+  letter-spacing: 1px;
+}
+#buttonEle::before {
+  content: '❮';
+  position: absolute;
+  -webkit-transform: rotateZ(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotateZ(45deg);
+  top: -3px;
+  left: 0;
+}
+#buttonEle::after {
+  content: '❯';
+  position: absolute;
+  -webkit-transform: rotateZ(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotateZ(45deg);
+  bottom: -5px;
+  right: 0;
+}
+
+#buttonEle:hover {
+  color: #cfee1d;
+}
+
+@media (max-width: 499px) {
+  #buttonEle {
+    padding: 12px;
+    font-size: 12px;
+    margin: 10px 10px;
+  }
+}

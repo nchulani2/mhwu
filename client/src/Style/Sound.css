@@ -1,0 +1,49 @@
+.sound {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  z-index: 10;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
+.sound .soundButton {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  width: 150px;
+  height: 50px;
+  color: white;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: rgba(38, 38, 38, 0.6);
+  border: solid rgba(255, 255, 255, 0.3);
+  border-width: thin;
+  cursor: pointer;
+  outline: none;
+  font-family: 'MedievalSharp', cursive;
+  -webkit-transition: all linear 0.15s;
+  -o-transition: all linear 0.15s;
+  transition: all linear 0.15s;
+  animation-duration: 0.5s;
+}
+
+.sound .soundButton:hover {
+  -webkit-transition: all linear 0.15s;
+  -o-transition: all linear 0.15s;
+  transition: all linear 0.15s;
+  color: rgb(207, 238, 29);
+}
+
+.sound .soundButton span i {
+  margin: 0 0 0 0.25rem;
+  font-size: 12px;
+}
+@media (max-width: 450px) {
+  .sound {
+    left: 20%;
+    -webkit-transform: translate(-20%, 0);
+    -ms-transform: translate(-20%, 0);
+    transform: translate(-20%, 0);
+  }
+}
