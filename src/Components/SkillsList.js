@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import '../Style/SkillsList.css';
 
 const romanChars = rankNum => {
@@ -75,4 +76,4 @@ const SkillsList = props => {
   );
 };
 
-export default SkillsList;
+export default withRouter(SkillsList);

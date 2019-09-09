@@ -1,5 +1,6 @@
 import React from 'react';
 import RouteButton from './RouteButton';
+import { withRouter } from 'react-router-dom';
 import '../Style/AboutCont.css';
 
 const aboutButtonStyle = {
@@ -35,4 +36,4 @@ const AboutCont = props => {
   );
 };
 
-export default AboutCont;
+export default withRouter(AboutCont);

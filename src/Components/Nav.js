@@ -3,10 +3,10 @@ import NavSvg from './NavSvg';
 import ReactHowler from 'react-howler';
 import MenuMhwSound from '../Sounds/nav_menu_sound.ogg';
 import Sound from './Sound';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import '../Style/Nav.css';
 
-export default class Nav extends Component {
+class Nav extends Component {
   state = {
     isOpen: false,
     loaded: false,
@@ -167,3 +167,5 @@ export default class Nav extends Component {
     );
   }
 }
+
+export default withRouter(Nav);

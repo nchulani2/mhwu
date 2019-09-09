@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Error extends Component {
   render() {
@@ -6,4 +7,4 @@ class Error extends Component {
   }
 }
 
-export default Error;
+export default withRouter(Error);

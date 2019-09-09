@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Logo_mhw from '../Images/logo_mhw.png';
 import TextLogo from './TextLogo';
+import { withRouter } from 'react-router-dom';
 
 import '../Style/Title.css';
 
@@ -19,4 +20,4 @@ class Title extends Component {
   }
 }
 
-export default Title;
+export default withRouter(Title);

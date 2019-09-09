@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import '../Style/Loading.css';
 
 const Loading = props => {
@@ -10,4 +11,4 @@ const Loading = props => {
   );
 };
 
-export default Loading;
+export default withRouter(Loading);

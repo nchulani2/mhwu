@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import AboutCont from '../Components/AboutCont';
 import RouteTitle from '../Components/RouteTitle';
 import HunterOne from '../Images/Hunter/HunterOne.png';
@@ -54,4 +55,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default withRouter(About);

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Tilt from 'react-tilt';
 // import Modal from 'react-modal';
 // import ModalContent from './ModalContent';
 import '../Style/Monster.css';
 
-export default class Monster extends Component {
+class Monster extends Component {
   state = {
     showDetails: false
   };
@@ -99,3 +100,5 @@ export default class Monster extends Component {
     );
   }
 }
+
+export default withRouter(Monster);

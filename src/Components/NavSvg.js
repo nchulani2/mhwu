@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 const NavSvg = () => {
   return (
@@ -40,4 +41,4 @@ const NavSvg = () => {
     </svg>
   );
 };
-export default NavSvg;
+export default withRouter(NavSvg);

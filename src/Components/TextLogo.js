@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 const TextLogo = () => {
   return (
@@ -46,4 +47,4 @@ const TextLogo = () => {
   );
 };
 
-export default TextLogo;
+export default withRouter(TextLogo);

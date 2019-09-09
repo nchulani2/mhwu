@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import Nav from './Components/Nav';
 
 import Home from './Pages/Home';
@@ -27,4 +27,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withRouter(App);

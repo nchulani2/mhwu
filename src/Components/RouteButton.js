@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import '../Style/RouteButton.css';
 
 const RouteButton = props => {
@@ -19,4 +19,4 @@ const RouteButton = props => {
   );
 };
 
-export default RouteButton;
+export default withRouter(RouteButton);

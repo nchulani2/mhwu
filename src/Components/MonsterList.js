@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Monster from './Monster';
 import '../Style/MonsterList.css';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class MonsterList extends Component {
   handleMonsters = monster => {
@@ -22,4 +22,4 @@ class MonsterList extends Component {
   }
 }
 
-export default MonsterList;
+export default withRouter(MonsterList);

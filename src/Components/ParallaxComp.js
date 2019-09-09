@@ -1,6 +1,7 @@
 import React from 'react';
 import Title from './Title';
 import RouteButton from './RouteButton';
+import { withRouter } from 'react-router-dom';
 import '../Style/ParallaxComp.css';
 
 const ParallaxComp = () => {
@@ -51,4 +52,4 @@ const ParallaxComp = () => {
     </div>
   );
 };
-export default ParallaxComp;
+export default withRouter(ParallaxComp);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import '../Style/InputFilter.css';
 
 const InputFilter = props => {
@@ -14,4 +15,4 @@ const InputFilter = props => {
   );
 };
 
-export default InputFilter;
+export default withRouter(InputFilter);

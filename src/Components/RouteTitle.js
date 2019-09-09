@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import '../Style/RouteTitle.css';
 
 const RouteTitle = props => {
@@ -10,4 +11,4 @@ const RouteTitle = props => {
     </div>
   );
 };
-export default RouteTitle;
+export default withRouter(RouteTitle);

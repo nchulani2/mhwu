@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import RouteTitle from '../Components/RouteTitle';
 
 class Armor extends Component {
@@ -30,4 +31,4 @@ class Armor extends Component {
   }
 }
 
-export default Armor;
+export default withRouter(Armor);

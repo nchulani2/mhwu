@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Rater from 'react-rater';
+import { withRouter } from 'react-router-dom';
 import 'react-rater/lib/react-rater.css';
 import 'src/Style/MonsterContent.css';
 
-export default class MonsterContent extends Component {
+class MonsterContent extends Component {
   getRandomKey = length => {
     // generated random key that is length # of characters long to avoid matching key props
     var result = '';
@@ -304,3 +305,5 @@ export default class MonsterContent extends Component {
     );
   }
 }
+
+export default withRouter(MonsterContent);

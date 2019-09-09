@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import ParallaxComp from '../Components/ParallaxComp';
 
 class Home extends Component {
@@ -7,4 +8,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);
