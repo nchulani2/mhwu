@@ -23,7 +23,6 @@ const romanChars = rankNum => {
 };
 
 const SkillsList = props => {
-  console.log(props.skills);
   return (
     <div className="skillsList ui container animated fadeIn faster">
       <table style={{ width: '100%' }}>

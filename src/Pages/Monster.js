@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Loading from '../Components/Loading';
 import MonsterContent from '../Components/MonsterContent.js';
 import RouteButton from '../Components/RouteButton';
-
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSpecMonster } from '../Actions';
 
@@ -54,7 +54,9 @@ const mapStateToProps = state => {
   return { data: state.data };
 };
 
-export default connect(
-  mapStateToProps,
-  { getSpecMonster }
-)(Monster);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getSpecMonster }
+  )(Monster)
+);

@@ -4,6 +4,7 @@ import Loading from '../Components/Loading';
 import InputFilter from '../Components/InputFilter';
 import SkillsList from '../Components/SkillsList';
 import RouteButton from '../Components/RouteButton';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSkills } from '../Actions';
 
@@ -82,7 +83,9 @@ const mapStateToProps = state => {
   return { data: state.skills };
 };
 
-export default connect(
-  mapStateToProps,
-  { getSkills }
-)(Skills);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getSkills }
+  )(Skills)
+);

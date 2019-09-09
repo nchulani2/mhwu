@@ -5,7 +5,7 @@ import Loading from '../Components/Loading';
 import RouteTitle from '../Components/RouteTitle';
 import InputFilter from '../Components/InputFilter';
 import RouteButton from '../Components/RouteButton';
-
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getLargeMonsters } from '../Actions';
 
@@ -114,7 +114,9 @@ const mapStateToProps = state => {
   return { data: state.data };
 };
 
-export default connect(
-  mapStateToProps,
-  { getLargeMonsters }
-)(Monsters);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getLargeMonsters }
+  )(Monsters)
+);

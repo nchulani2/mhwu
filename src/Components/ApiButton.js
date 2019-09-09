@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { getSmallMonsters, getLargeMonsters } from '../Actions';
 
 import '../Style/ApiButtons.css';
@@ -48,10 +49,12 @@ class ApiButtons extends Component {
 const mapStateToProps = state => {
   return { data: state.data };
 };
-export default connect(
-  mapStateToProps,
-  {
-    getSmallMonsters,
-    getLargeMonsters
-  }
-)(ApiButtons);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {
+      getSmallMonsters,
+      getLargeMonsters
+    }
+  )(ApiButtons)
+);
