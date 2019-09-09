@@ -7,13 +7,23 @@
 
 .aboutPos .aboutCont {
   width: 450px;
-  height: 400px;
+  height: 540px;
   background: #262626;
   border-radius: 4px;
-  padding: 20px 40px;
+  padding: 20px 20px;
   box-shadow: 0px 0px 5px inset #cfee1d;
 }
-
+.aboutPos .aboutCont .routers {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 15px 0;
+}
+.aboutPos .aboutCont .outerButt {
+  width: 120px;
+}
 .aboutPos .aboutCont .aboutContText {
   color: white;
   font-size: 20px;
@@ -21,6 +31,7 @@
   letter-spacing: 2px;
   line-height: 30px;
   text-align: center;
+  padding-bottom: 10px;
 }
 
 @media (max-width: 499px) {
@@ -30,10 +41,14 @@
   }
   .aboutPos .aboutCont {
     width: 300px;
-    height: 380px;
+    height: 430px;
   }
   .aboutPos .aboutCont .aboutContText {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 18px;
+    padding-bottom: 8px;
+  }
+  .aboutPos .aboutCont .outerButt {
+    width: 100px;
   }
 }

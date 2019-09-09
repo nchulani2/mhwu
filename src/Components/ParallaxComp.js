@@ -21,31 +21,16 @@ const ParallaxComp = () => {
         </ul>
         <Title></Title>
       </figure>
-      <div className="routers">
+      <div className="router">
         <RouteButton
-          buttonText="About"
+          buttonText="Click here!"
           buttonLink="about"
-          animDelay="0.5s"
-          margin="10px"
-          background="#262626"></RouteButton>
-        <RouteButton
-          buttonText="Skills"
-          buttonLink="skills"
-          animDelay="0.6s"
-          margin="10px"
-          background="#262626"></RouteButton>
-        <RouteButton
-          buttonText="Armor"
-          buttonLink="armor"
-          animDelay="0.7s"
-          margin="10px"
-          background="#262626"></RouteButton>
-        <RouteButton
-          buttonText="Monsters"
-          buttonLink="monsters"
-          animDelay="0.8s"
-          margin="10px"
-          background="#262626"></RouteButton>
+          animDelay="0.2s"
+          margin="0"
+          background="#262626"
+          padding={window.innerWidth > 499 ? '15px 40px' : '15px 25px'}
+          letterSpacing="2px"
+          fontSize={window.innerWidth > 499 ? '16px' : '13px'}></RouteButton>
       </div>
     </div>
   );

@@ -12,7 +12,14 @@ const RouteButton = props => {
         cursor: 'pointer',
         animationDelay: props.animDelay
       }}>
-      <button className="button" style={{ background: props.background }}>
+      <button
+        className="button"
+        style={{
+          background: props.background,
+          padding: props.padding,
+          letterSpacing: props.letterSpacing,
+          fontSize: props.fontSize
+        }}>
         {props.buttonText}
       </button>
     </Link>

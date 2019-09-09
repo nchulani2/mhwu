@@ -9,6 +9,7 @@ import Monsters from './Pages/Monsters';
 import Monster from './Pages/Monster';
 import Armor from './Pages/Armor';
 import Error from './Pages/Error';
+import Charms from './Pages/Charms';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route exact path="/monsters" component={Monsters}></Route>
         <Route path={`/monsters/:monsterId`} component={Monster}></Route>
         <Route path="/armor" component={Armor}></Route>
+        <Route path="/charms" component={Charms}></Route>
         <Route component={Error}></Route>
       </Switch>
       <Nav />

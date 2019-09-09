@@ -121,6 +121,19 @@ export const getSkills = () => async dispatch => {
 // END SKILLS
 /* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
+// START CHARMS
+
+export const getCharms = () => async dispatch => {
+  dispatch(loading());
+  const response = await monsterhunter.get('/charms');
+
+  dispatch({ type: 'GET_CHARMS', payload: response.data });
+};
+
+// END CHARMS
+/* -------------------------------------------------------------------------- */
+
 const loading = () => dispatch => {
   dispatch({ type: 'LOADING' });
 };

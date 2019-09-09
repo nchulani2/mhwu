@@ -39,6 +39,9 @@
   }
 }
 @media (max-width: 499px) {
+  .inputfilter {
+    height: 45px;
+  }
   .inputfilter #inputEle {
     font-size: 15px;
   }
