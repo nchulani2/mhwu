@@ -27,22 +27,34 @@ const SkillsList = props => {
   return (
     <div className="skillsList ui container animated fadeIn faster">
       <table style={{ width: '100%' }}>
-        <tbody className="DONOTFILTER">
+        <thead className="DONOTFILTER">
           <tr>
             <th className="mainHeader">Icon</th>
             <th className="mainHeader">Skill</th>
             <th className="mainHeader">Rank</th>
           </tr>
-        </tbody>
+        </thead>
 
         {props.skills !== 0
           ? props.skills.map(skill => (
               <tbody key={skill.id} className="FILTER">
                 <tr>
-                  <td className="icon-td" rowSpan="0">
+                  <td
+                    className="icon-td"
+                    rowSpan={
+                      skill.ranks.length !== 1
+                        ? skill.ranks.length + 1
+                        : skill.ranks.length + 2
+                    }>
                     <img src={skill.icon} alt={skill.description}></img>
                   </td>
-                  <td className="skill-td" rowSpan="0">
+                  <td
+                    className="skill-td"
+                    rowSpan={
+                      skill.ranks.length !== 1
+                        ? skill.ranks.length + 1
+                        : skill.ranks.length + 2
+                    }>
                     <span className="FILTER-CHECKER">{skill.name}</span>
                     <br></br>
                     <span className="skill-desc">{skill.description}</span>
