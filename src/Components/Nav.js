@@ -3,6 +3,7 @@ import NavSvg from './NavSvg';
 import ReactHowler from 'react-howler';
 import MenuMhwSound from '../Sounds/nav_menu_sound.ogg';
 import Sound from './Sound';
+import { Link } from 'react-router-dom';
 import '../Style/Nav.css';
 
 export default class Nav extends Component {
@@ -20,20 +21,20 @@ export default class Nav extends Component {
 
       this.setState({
         isOpen: true,
-        playing: !this.state.loaded ? !this.state.playing : false
+        playing: this.state.loaded ? !this.state.playing : false
       });
       document.documentElement.classList.add('.noScroll');
       this.playerMenu.stop();
     } else {
       this.setState({
         isOpen: false,
-        playing: !this.state.loaded ? !this.state.playing : false
+        playing: this.state.loaded ? !this.state.playing : false
       });
       document.documentElement.classList.remove('.noScroll');
     }
   };
 
-  handleLoad = () => {
+  handleLoadMenu = () => {
     this.setState({
       loaded: true
     });
@@ -42,7 +43,7 @@ export default class Nav extends Component {
   render() {
     return (
       <div className="navigation">
-        <div className="nav animated fadeInDown">
+        <div className="nav animated fadeInDown faster">
           <ReactHowler
             src={MenuMhwSound}
             playing={this.state.playing}
@@ -111,46 +112,54 @@ export default class Nav extends Component {
           }`}>
           <Sound open={this.state.isOpen} />
           <div className="flexAnchors">
-            <a
-              href="#something"
+            <Link
+              to="/"
+              onClick={() => this.setState({ isOpen: false, playing: false })}
               className={`${
-                this.state.isOpen ? 'animated fadeInLeft fast' : 'hideIt'
+                this.state.isOpen ? 'animated fadeInLeft faster' : 'hideIt'
+              }`}>
+              Home
+            </Link>
+            <Link
+              to="/about"
+              onClick={() => this.setState({ isOpen: false, playing: false })}
+              className={`${
+                this.state.isOpen ? 'animated fadeInLeft faster' : 'hideIt'
               }`}>
               About
-            </a>
-            <a
-              href="#something"
+            </Link>
+
+            <Link
+              to="/skills"
+              onClick={() => this.setState({ isOpen: false, playing: false })}
               className={`${
-                this.state.isOpen ? 'animated fadeInLeft fast' : 'hideIt'
+                this.state.isOpen ? 'animated fadeInLeft faster' : 'hideIt'
               }`}>
               Skills
-            </a>
-            <a
-              href="#something"
+            </Link>
+            <Link
+              to="/armor"
+              onClick={() => this.setState({ isOpen: false, playing: false })}
               className={`${
-                this.state.isOpen ? 'animated fadeInLeft fast' : 'hideIt'
+                this.state.isOpen ? 'animated fadeInLeft faster' : 'hideIt'
               }`}>
               Armor
-            </a>
-            <a
-              href="#something"
+            </Link>
+            <Link
+              to="/monsters"
+              onClick={() => this.setState({ isOpen: false, playing: false })}
               className={`${
-                this.state.isOpen ? 'animated fadeInLeft fast' : 'hideIt'
+                this.state.isOpen ? 'animated fadeInLeft faster' : 'hideIt'
               }`}>
               Monsters
-            </a>
+            </Link>
           </div>
           <div className="noticeBlock">
             <div
               className={`notice ${
                 this.state.isOpen ? 'animated bounceInUp' : 'hideIt'
               }`}>
-              Routing isn't supported as yet, so these links have been disabled
-              until further notice <br />
-              <span style={{ color: 'rgb(208,238,29)' }}>
-                {' '}
-                Developed by MH veteran Naveen Chulani
-              </span>
+              Developed by MH veteran Naveen Chulani
             </div>
           </div>
         </div>

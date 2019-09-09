@@ -1,40 +1,36 @@
-.flexCont {
+.title {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  top: 200px;
+  top: 10%;
   left: 50%;
-  text-align: center;
+  width: 250px;
+  height: 300px;
+  animation-delay: 0.3s;
+  transform: translate(-50%, -10%);
   font-weight: 800;
   font-family: 'MedievalSharp', cursive;
   -webkit-transition: all linear 0.15s;
   -o-transition: all linear 0.15s;
   transition: all linear 0.15s;
-  z-index: 99;
-  -webkit-transform: translate(-50%, 0);
-  -ms-transform: translate(-50%, 0);
-  transform: translate(-50%, 0);
+  z-index: 9;
 }
-.flexCont .titleLogo {
+.title .flexTitle {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title .titleLogo {
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
+  width: 80%;
+  height: 100%;
   -webkit-transition: all linear 0.15s;
   -o-transition: all linear 0.15s;
   transition: all linear 0.15s;
@@ -43,6 +39,9 @@
   filter: drop-shadow(0px 0px 0px #fff);
   -webkit-animation: dropEffect 5s linear infinite forwards;
   animation: dropEffect 5s linear infinite forwards;
+}
+.title .details {
+  width: 80%;
 }
 @-webkit-keyframes dropEffect {
   0% {
@@ -80,47 +79,10 @@
     opacity: 0.2;
   }
 }
-.flexCont .details {
-  font-size: 60px;
-  line-height: 80px;
-  text-transform: uppercase;
-  margin-top: 20px;
-  z-index: 80;
-  -webkit-transition: all linear 0.15s;
-  -o-transition: all linear 0.15s;
-  transition: all linear 0.15s;
-  letter-spacing: 15px;
-}
-.flexCont .details .letterGradient {
-  background: -webkit-linear-gradient(#fff 30%, rgba(255, 255, 255, 0.1));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+
 @media (max-width: 499px) {
-  .flexCont {
-    top: 250px;
-    -webkit-transition: all linear 0.15s;
-    -o-transition: all linear 0.15s;
-    transition: all linear 0.15s;
-  }
-  .flexCont .titleLogo {
-    width: 300px;
-    height: 300px;
-    -webkit-transition: all linear 0.15s;
-    -o-transition: all linear 0.15s;
-    transition: all linear 0.15s;
-  }
-  .flexCont .details {
-    font-size: 40px;
-    line-height: 60px;
-    letter-spacing: 8px;
-    -webkit-transition: all linear 0.15s;
-    -o-transition: all linear 0.15s;
-    transition: all linear 0.15s;
-  }
-}
-@media (max-width: 450px) {
-  .flexCont {
-    top: 300px;
+  .title {
+    width: 175px;
+    height: 250px;
   }
 }

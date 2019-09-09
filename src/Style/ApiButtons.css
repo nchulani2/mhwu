@@ -1,40 +1,21 @@
-.apibuttons {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  z-index: 2;
-}
-
-.apibuttons button {
-  width: 200px;
-  height: 50px;
+#buttonEle {
+  padding: 15px;
   font-family: 'MedievalSharp', cursive;
   text-transform: uppercase;
   cursor: pointer;
   margin: 10px 20px;
   color: white;
-  border: 1px solid #262626;
+  border: 1px solid #363636;
   border-radius: 4px;
   font-size: 15px;
-  background: #262626;
+  background: #363636;
   -webkit-transition: all linear 0.15s;
   -o-transition: all linear 0.15s;
   transition: all linear 0.15s;
   outline: none;
   letter-spacing: 1px;
 }
-.apibuttons button::before {
+#buttonEle::before {
   content: '❮';
   position: absolute;
   -webkit-transform: rotateZ(45deg);
@@ -43,7 +24,7 @@
   top: -3px;
   left: 0;
 }
-.apibuttons button::after {
+#buttonEle::after {
   content: '❯';
   position: absolute;
   -webkit-transform: rotateZ(45deg);
@@ -53,38 +34,14 @@
   right: 0;
 }
 
-.apibuttons button:hover {
+#buttonEle:hover {
   color: #cfee1d;
 }
 
-.fixEm {
-  position: fixed;
-  top: 0;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  -webkit-animation-delay: 0.15s;
-  animation-delay: 0.15s;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-.fixEm + .monsterlist {
-  padding-top: 70px;
-}
-
-@media (max-width: 620px) {
-  .apibuttons button {
-    width: 150px;
-    height: 40px;
-    font-size: 10px;
+@media (max-width: 499px) {
+  #buttonEle {
+    padding: 12px;
+    font-size: 12px;
     margin: 10px 10px;
-    -webkit-transition: all linear 0.15s;
-    -o-transition: all linear 0.15s;
-    transition: all linear 0.15s;
-  }
-  .fixEm + .monsterlist {
-    padding-top: 0px;
   }
 }

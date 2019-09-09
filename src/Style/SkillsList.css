@@ -1,0 +1,81 @@
+.skillsList {
+  color: white;
+  font-family: 'MedievalSharp', cursive;
+  padding: 20px 0;
+}
+
+.skillsList table,
+.skillsList table .mainHeader {
+  border: thin solid rgba(208, 238, 29, 0.6);
+  border-collapse: collapse;
+  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(208, 238, 29, 1);
+}
+
+.skillsList table .mainHeader {
+  font-size: 16px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+.skillsList table .mainHeader:nth-child(1) {
+  width: 20%;
+}
+
+.skillsList table .mainHeader:nth-child(2) {
+  width: 30%;
+}
+
+.skillsList table .mainHeader:nth-child(3) {
+  width: 80%;
+}
+
+.skillsList table .icon-td,
+.skillsList table .skill-td {
+  border: thin solid rgba(208, 238, 29, 0.6);
+  padding: 20px;
+  text-align: center;
+  text-transform: none;
+  font-size: 16px;
+  color: rgba(208, 238, 29, 1);
+}
+.skillsList table .skill-td .skill-desc {
+  font-size: 14px;
+  color: white;
+}
+.skillsList table .reg-td {
+  border: thin solid rgba(208, 238, 29, 0.6);
+  padding: 20px;
+  color: white;
+  text-align: left;
+  text-transform: none;
+}
+
+@media (max-width: 499px) {
+  .skillsList {
+    padding: 10px 0;
+  }
+  .skillsList table .mainHeader {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  .skillsList table .icon-td,
+  .skillsList table .skill-td {
+    padding: 5px;
+    font-size: 14px;
+  }
+  .skillsList table .reg-td {
+    padding: 5px;
+    font-size: 12px;
+    text-align: center;
+  }
+  .skillsList table .skill-td .skill-desc {
+    font-size: 12px;
+  }
+  .skillsList table .icon-td img {
+    width: 29px;
+    height: 30px;
+  }
+}
