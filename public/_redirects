@@ -1,6 +1,1 @@
-/home   / 200
-/info  /about  200
-/skill /skills 200
-/monster   /monsters 200
-/monster/:id /monsters/:id 200
-/armorsets /armor 200
+/*    /index.html  200
