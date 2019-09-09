@@ -86,24 +86,23 @@ class MonsterContent extends Component {
                 rowSpan={
                   monstie.elements.length !== 0
                     ? monstie.elements.length + 1
-                    : window.innerWidth > 499
-                    ? monstie.elements.length
-                    : monstie.elements.length + 1
+                    : monstie.elements.length
                 }>
                 Elements
               </th>
-            </tr>
-            {monstie.elements.length !== 0 ? (
-              monstie.elements.map(element => (
-                <tr key={this.getRandomKey(10)}>
-                  <td className="tableInfos">{this.upperCaseFirst(element)}</td>
-                </tr>
-              ))
-            ) : (
-              <tr>
+              {monstie.elements.length === 0 ? (
                 <td className="tableInfos">N/a</td>
-              </tr>
-            )}
+              ) : null}
+            </tr>
+            {monstie.elements.length !== 0
+              ? monstie.elements.map(element => (
+                  <tr key={this.getRandomKey(10)}>
+                    <td className="tableInfos">
+                      {this.upperCaseFirst(element)}
+                    </td>
+                  </tr>
+                ))
+              : null}
           </tbody>
           <tbody>
             <tr>
@@ -116,25 +115,24 @@ class MonsterContent extends Component {
                 }>
                 Ailments
               </th>
-            </tr>
-            {monstie.ailments.length !== 0 ? (
-              monstie.ailments.map(ailment => (
-                <tr key={ailment.id}>
-                  <td className="tableInfos">
-                    {this.upperCaseFirst(ailment.name)}
-                    <img
-                      className="iconElements"
-                      src={ailment.icon}
-                      alt={ailment.description}
-                    />
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
+              {monstie.ailments.length === 0 ? (
                 <td className="tableInfos">N/a</td>
-              </tr>
-            )}
+              ) : null}
+            </tr>
+            {monstie.ailments.length !== 0
+              ? monstie.ailments.map(ailment => (
+                  <tr key={ailment.id}>
+                    <td className="tableInfos">
+                      {this.upperCaseFirst(ailment.name)}
+                      <img
+                        className="iconElements"
+                        src={ailment.icon}
+                        alt={ailment.description}
+                      />
+                    </td>
+                  </tr>
+                ))
+              : null}
           </tbody>
 
           {/* NOTE THREESTARS */}
@@ -149,25 +147,25 @@ class MonsterContent extends Component {
                 }>
                 Weaknesses
               </th>
-            </tr>
-            {threeStars.length !== 0 ? (
-              threeStars.map(weakness => (
-                <tr key={this.getRandomKey(20)}>
-                  <td className="tableInfos">
-                    {this.upperCaseFirst(weakness.element)}
-                    <Rater
-                      total={3}
-                      rating={weakness.stars}
-                      interactive={false}
-                    />
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
+
+              {threeStars.length === 0 ? (
                 <td className="tableInfos">N/a</td>
-              </tr>
-            )}
+              ) : null}
+            </tr>
+            {threeStars.length !== 0
+              ? threeStars.map(weakness => (
+                  <tr key={this.getRandomKey(20)}>
+                    <td className="tableInfos">
+                      {this.upperCaseFirst(weakness.element)}
+                      <Rater
+                        total={3}
+                        rating={weakness.stars}
+                        interactive={false}
+                      />
+                    </td>
+                  </tr>
+                ))
+              : null}
           </tbody>
           {/* NOTE TWOSTARS */}
           <tbody>
@@ -179,25 +177,24 @@ class MonsterContent extends Component {
                 }>
                 moderate weaknesses
               </th>
-            </tr>
-            {twoStars.length !== 0 ? (
-              twoStars.map(weakness => (
-                <tr key={this.getRandomKey(20)}>
-                  <td className="tableInfos">
-                    {this.upperCaseFirst(weakness.element)}
-                    <Rater
-                      total={3}
-                      rating={weakness.stars}
-                      interactive={false}
-                    />
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
+              {twoStars.length === 0 ? (
                 <td className="tableInfos">N/a</td>
-              </tr>
-            )}
+              ) : null}
+            </tr>
+            {twoStars.length !== 0
+              ? twoStars.map(weakness => (
+                  <tr key={this.getRandomKey(20)}>
+                    <td className="tableInfos">
+                      {this.upperCaseFirst(weakness.element)}
+                      <Rater
+                        total={3}
+                        rating={weakness.stars}
+                        interactive={false}
+                      />
+                    </td>
+                  </tr>
+                ))
+              : null}
           </tbody>
           {/* NOTE ONESTARS */}
           <tbody>
@@ -209,25 +206,24 @@ class MonsterContent extends Component {
                 }>
                 Minimum weaknesses
               </th>
-            </tr>
-            {oneStars.length !== 0 ? (
-              oneStars.map(weakness => (
-                <tr key={this.getRandomKey(20)}>
-                  <td className="tableInfos">
-                    {this.upperCaseFirst(weakness.element)}
-                    <Rater
-                      total={3}
-                      rating={weakness.stars}
-                      interactive={false}
-                    />
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
+              {oneStars.length === 0 ? (
                 <td className="tableInfos">N/a</td>
-              </tr>
-            )}
+              ) : null}
+            </tr>
+            {oneStars.length !== 0
+              ? oneStars.map(weakness => (
+                  <tr key={this.getRandomKey(20)}>
+                    <td className="tableInfos">
+                      {this.upperCaseFirst(weakness.element)}
+                      <Rater
+                        total={3}
+                        rating={weakness.stars}
+                        interactive={false}
+                      />
+                    </td>
+                  </tr>
+                ))
+              : null}
           </tbody>
           {/* NOTE RESISTANCES */}
           <tbody>
@@ -241,20 +237,19 @@ class MonsterContent extends Component {
                 }>
                 resistances
               </th>
-            </tr>
-            {monstie.resistances.length !== 0 ? (
-              monstie.resistances.map(resistance => (
-                <tr key={this.getRandomKey(20)}>
-                  <td className="tableInfos">
-                    {this.upperCaseFirst(resistance.element)}
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
+              {monstie.resistances.length === 0 ? (
                 <td className="tableInfos">N/a</td>
-              </tr>
-            )}
+              ) : null}
+            </tr>
+            {monstie.resistances.length !== 0
+              ? monstie.resistances.map(resistance => (
+                  <tr key={this.getRandomKey(20)}>
+                    <td className="tableInfos">
+                      {this.upperCaseFirst(resistance.element)}
+                    </td>
+                  </tr>
+                ))
+              : null}
           </tbody>
           {/* NOTE LOCATIONS */}
           <tbody className="lastTr">
@@ -268,20 +263,19 @@ class MonsterContent extends Component {
                 }>
                 Locations
               </th>
-            </tr>
-            {monstie.locations.length !== 0 ? (
-              monstie.locations.map(location => (
-                <tr key={location.id}>
-                  <td className="tableInfos">
-                    {location.name} <span>[{location.zoneCount}]</span>
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
+              {monstie.locations.length === 0 ? (
                 <td className="tableInfos">N/a</td>
-              </tr>
-            )}
+              ) : null}
+            </tr>
+            {monstie.locations.length !== 0
+              ? monstie.locations.map(location => (
+                  <tr key={location.id}>
+                    <td className="tableInfos">
+                      {location.name} <span>[{location.zoneCount}]</span>
+                    </td>
+                  </tr>
+                ))
+              : null}
           </tbody>
         </table>
 
