@@ -1,0 +1,6 @@
+/   /index.html 200
+/about  /about  200
+/skills /skills 200
+/monsters   /monsters 200
+/monsters/:id /monsters/:id 200
+/armor /armor 200
