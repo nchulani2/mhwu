@@ -21,15 +21,12 @@ class Index extends Component {
               window.__REDUX_DEVTOOLS_EXTENSION__()
           )
         )}>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </Provider>
     );
   }
 }
 
-render(
-  <Router>
-    <Index />
-  </Router>,
-  document.querySelector('#root')
-);
+render(<Index />, document.querySelector('#root'));
