@@ -81,8 +81,13 @@ class MonsterContent extends Component {
           {/* NOTE ELEMENTS */}
           <tbody>
             <tr>
-              {/* REVIEW rowSpan set as 0 acts as a default for row space */}
-              <th className="tableHeaders" rowSpan={0}>
+              <th
+                className="tableHeaders"
+                rowSpan={
+                  monstie.elements.length !== 0
+                    ? monstie.elements.length + 1
+                    : monstie.elements.length
+                }>
                 Elements
               </th>
             </tr>
@@ -100,7 +105,13 @@ class MonsterContent extends Component {
           </tbody>
           <tbody>
             <tr>
-              <th className="tableHeaders" rowSpan={0}>
+              <th
+                className="tableHeaders"
+                rowSpan={
+                  monstie.ailments.length !== 0
+                    ? monstie.ailments.length + 1
+                    : monstie.ailments.length
+                }>
                 Ailments
               </th>
             </tr>
@@ -127,7 +138,13 @@ class MonsterContent extends Component {
           {/* NOTE THREESTARS */}
           <tbody>
             <tr>
-              <th className="tableHeaders" rowSpan={0}>
+              <th
+                className="tableHeaders"
+                rowSpan={
+                  threeStars.length !== 0
+                    ? threeStars.length + 1
+                    : threeStars.length
+                }>
                 Weaknesses
               </th>
             </tr>
@@ -153,7 +170,11 @@ class MonsterContent extends Component {
           {/* NOTE TWOSTARS */}
           <tbody>
             <tr>
-              <th className="tableHeaders" rowSpan={0}>
+              <th
+                className="tableHeaders"
+                rowSpan={
+                  twoStars.length !== 0 ? twoStars.length + 1 : twoStars.length
+                }>
                 moderate weaknesses
               </th>
             </tr>
@@ -179,7 +200,11 @@ class MonsterContent extends Component {
           {/* NOTE ONESTARS */}
           <tbody>
             <tr>
-              <th className="tableHeaders" rowSpan={0}>
+              <th
+                className="tableHeaders"
+                rowSpan={
+                  oneStars.length !== 0 ? oneStars.length + 1 : oneStars.length
+                }>
                 Minimum weaknesses
               </th>
             </tr>
@@ -205,7 +230,13 @@ class MonsterContent extends Component {
           {/* NOTE RESISTANCES */}
           <tbody>
             <tr>
-              <th className="tableHeaders" rowSpan={0}>
+              <th
+                className="tableHeaders"
+                rowSpan={
+                  monstie.resistances.length !== 0
+                    ? monstie.resistances.length + 1
+                    : monstie.resistances.length
+                }>
                 resistances
               </th>
             </tr>
@@ -226,7 +257,13 @@ class MonsterContent extends Component {
           {/* NOTE LOCATIONS */}
           <tbody className="lastTr">
             <tr>
-              <th className="tableHeaders" rowSpan={0}>
+              <th
+                className="tableHeaders"
+                rowSpan={
+                  monstie.locations.length !== 0
+                    ? monstie.locations.length + 1
+                    : monstie.locations.length
+                }>
                 Locations
               </th>
             </tr>
