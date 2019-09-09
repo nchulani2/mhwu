@@ -1,6 +1,6 @@
-/   /https://mhwu.netlify.com 301
-/about  /https://mhwu.netlify.com/about  301
-/skills /https://mhwu.netlify.com/skills 301
-/monsters   /https://mhwu.netlify.com/monsters 301
-/monsters/:id https://mhwu.netlify.com/monsters/:id 301
-/armor /https://mhwu.netlify.com/armor 301
+/   / 301
+/about  /about  301
+/skills /skills 301
+/monsters   /monsters 301
+/monsters/:id /monsters/:id 301
+/armor /armor 301
