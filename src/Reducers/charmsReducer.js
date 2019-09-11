@@ -9,6 +9,8 @@ export default (state = charmsState, action) => {
       return { ...state, charmData: action.payload, loading: false };
     case 'LOADING':
       return { ...state, loading: true };
+    case 'GET_SPEC_CHARM':
+      return { ...state, charmData: [action.payload], loading: false };
     default:
       return state;
   }

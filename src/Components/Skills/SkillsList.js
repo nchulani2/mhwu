@@ -1,6 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import '../Style/SkillsList.css';
+import { Link, withRouter } from 'react-router-dom';
+import 'src/Style/SkillsList.css';
 
 const romanChars = rankNum => {
   switch (rankNum) {
@@ -37,7 +37,7 @@ const SkillsList = props => {
 
         {props.skills !== 0
           ? props.skills.map(skill => (
-              <tbody key={skill.id} className="FILTER">
+              <tbody className="FILTER" key={skill.id}>
                 <tr>
                   <td
                     className="icon-td"
@@ -46,7 +46,9 @@ const SkillsList = props => {
                         ? skill.ranks.length + 1
                         : skill.ranks.length + 2
                     }>
-                    <img src={skill.icon} alt={skill.description}></img>
+                    <Link to={`/skills/${skill.id}`}>
+                      <img src={skill.icon} alt={skill.description}></img>
+                    </Link>
                   </td>
                   <td
                     className="skill-td"
@@ -55,7 +57,9 @@ const SkillsList = props => {
                         ? skill.ranks.length + 1
                         : skill.ranks.length + 2
                     }>
-                    <span className="FILTER-CHECKER">{skill.name}</span>
+                    <Link to={`/skills/${skill.id}`}>
+                      <span className="FILTER-CHECKER">{skill.name}</span>
+                    </Link>
                     <br></br>
                     <span className="skill-desc">{skill.description}</span>
                   </td>
@@ -65,7 +69,10 @@ const SkillsList = props => {
                       <tr key={rank.id}>
                         <td className="reg-td">
                           <span
-                            style={{ color: '#cfee1d', letterSpacing: '2px' }}>
+                            style={{
+                              color: '#cfee1d',
+                              letterSpacing: '2px'
+                            }}>
                             {romanChars(rank.level)}
                           </span>{' '}
                           ― {rank.description}
@@ -76,13 +83,6 @@ const SkillsList = props => {
               </tbody>
             ))
           : null}
-
-        {/* <tr>
-            <td>icon here</td>
-          </tr>
-          <tr>
-            <td>icon here</td>
-          </tr> */}
       </table>
     </div>
   );

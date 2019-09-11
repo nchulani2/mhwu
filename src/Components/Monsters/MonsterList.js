@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Monster from './Monster';
-import '../Style/MonsterList.css';
+import 'src/Style/MonsterList.css';
 import { Link, withRouter } from 'react-router-dom';
 
 class MonsterList extends Component {

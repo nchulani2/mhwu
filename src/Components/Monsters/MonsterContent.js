@@ -289,7 +289,7 @@ class MonsterContent extends Component {
             </tr>
             {lowRankRewards.length !== 0 ? (
               lowRankRewards.map(reward => (
-                <tr key={reward.id}>
+                <tr key={reward.id} className="bodyTable">
                   <td className="rewardNames">{reward.item.name}</td>
                   <td className="rewardInfos">{reward.item.description}</td>
                 </tr>
@@ -313,7 +313,7 @@ class MonsterContent extends Component {
             </tr>
             {highRankRewards.length !== 0 ? (
               highRankRewards.map(reward => (
-                <tr key={reward.id}>
+                <tr key={reward.id} className="bodyTable">
                   <td className="rewardNames">{reward.item.name}</td>
                   <td className="rewardInfos">{reward.item.description}</td>
                 </tr>

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import ApiButton from '../Components/ApiButton';
-import MonsterList from '../Components/MonsterList';
-import Loading from '../Components/Loading';
-import RouteTitle from '../Components/RouteTitle';
-import InputFilter from '../Components/InputFilter';
+import ApiButton from 'src/Components/ApiButton';
+import MonsterList from 'src/Components/Monsters/MonsterList';
+import Loading from 'src/Components/Loading';
+import RouteTitle from 'src/Components/RouteTitle';
+import InputFilter from 'src/Components/InputFilter';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getLargeMonsters } from '../Actions';
+import { getLargeMonsters } from 'src/Actions';
 
 class Monsters extends Component {
   state = {

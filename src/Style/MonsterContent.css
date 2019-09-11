@@ -70,6 +70,10 @@ body {
 .monsterContent .tableHoc {
   margin: 0 auto 50px auto;
 }
+
+.monsterContent .tableHoc .bodyTable:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.6);
+}
 .monsterContent .monsterTitle {
   font-size: 30px;
   line-height: 30px;

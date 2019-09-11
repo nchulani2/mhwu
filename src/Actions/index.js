@@ -1,7 +1,11 @@
-import monsterhunter from '../api/monsterhunter';
+import monsterhunter from 'src/api/monsterhunter';
 import _ from 'lodash';
-import { MonsterList, BlightList } from '../Components/MonsterExports';
-import { SkillIcons } from '../Components/SkillExports';
+import {
+  MonsterList,
+  BlightList
+} from 'src/Components/Monsters/MonsterExports';
+import { SkillIcons } from 'src/Components/Skills/SkillExports';
+
 // import { ElementalList } from '../Components/MonsterExports';
 
 /* -------------------------------------------------------------------------- */
@@ -76,22 +80,22 @@ export const getLargeMonsters = () => async dispatch => {
 
 export const getSpecMonster = id => async (dispatch, getState) => {
   // Behaves as sort of a caching feature for an individual monster
+  dispatch(loading());
   const data = getState().data;
-
+  console.log(data);
   if (data.monsterData.length !== 0) {
-    const monster = data.monsterData.filter(
+    const monsterEle = data.monsterData.filter(
       monster => monster.id === Number(id)
     );
 
-    dispatch({ type: 'GET_SPEC', payload: monster[0] });
+    dispatch({ type: 'GET_SPEC_MONSTER', payload: monsterEle[0] });
   } else {
-    dispatch(loading());
     const response = await monsterhunter.get(`/monsters/${id}`);
 
     addSpecIcon(response.data);
     addSpecAilmentIcon(response.data);
 
-    dispatch({ type: 'GET_SPEC', payload: response.data });
+    dispatch({ type: 'GET_SPEC_MONSTER', payload: response.data });
   }
 };
 // END MONSTERS
@@ -118,6 +122,7 @@ export const getSkills = () => async dispatch => {
   dispatch({ type: 'GET_SKILLS', payload: response.data });
 };
 
+export const getSpecSkill = () => async dispatch => {};
 // END SKILLS
 /* -------------------------------------------------------------------------- */
 
@@ -131,6 +136,20 @@ export const getCharms = () => async dispatch => {
   dispatch({ type: 'GET_CHARMS', payload: response.data });
 };
 
+export const getSpecCharm = id => async (dispatch, getState) => {
+  dispatch(loading());
+  const charms = getState().charms;
+
+  if (charms.charmData.length !== 0) {
+    const charmEle = charms.charmData.filter(charm => charm.id === Number(id));
+
+    dispatch({ type: 'GET_SPEC_CHARM', payload: charmEle[0] });
+  } else {
+    const response = await monsterhunter.get(`/charms/${id}`);
+
+    dispatch({ type: 'GET_SPEC_CHARM', payload: response.data });
+  }
+};
 // END CHARMS
 /* -------------------------------------------------------------------------- */
 

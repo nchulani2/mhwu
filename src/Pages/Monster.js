@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Loading from '../Components/Loading';
-import MonsterContent from '../Components/MonsterContent.js';
+import Loading from 'src/Components/Loading';
+import MonsterContent from 'src/Components/Monsters/MonsterContent';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getSpecMonster } from '../Actions';
+import { getSpecMonster } from 'src/Actions';
 
 class Monster extends Component {
   componentDidMount = () => {
@@ -12,6 +12,7 @@ class Monster extends Component {
   };
 
   render() {
+    window.scrollTo(0, 0);
     const { loading, monsterData } = this.props.data;
     // console.log(loading, monsterData);
 

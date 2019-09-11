@@ -1,0 +1,117 @@
+.charmContent {
+  color: white;
+  position: relative;
+  top: 0;
+  right: 0;
+  font-family: 'MedievalSharp', cursive;
+  padding: 25px 0 70px 0;
+  animation-delay: 0.2s;
+}
+
+.charmContent .charmTitle {
+  font-size: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 auto 35px auto;
+  width: 50%;
+}
+
+.charmContent .rankEle .rankBox {
+  width: 450px;
+  margin: 0px auto 70px auto;
+  background: #242424;
+  border-radius: 2px;
+  padding: 15px;
+  font-weight: bolder;
+}
+.charmContent .rankEle .rankBox .rankLevel {
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-align: right;
+  padding-bottom: 10px;
+}
+
+.charmContent .rankEle .rankBox .skillBlock {
+  text-align: center;
+  color: #cfee1d;
+  padding-bottom: 20px;
+}
+.charmContent .rankEle .rankBox .skillBlock .skillDesc {
+  color: white;
+  font-size: 14px;
+  padding-top: 5px;
+}
+.charmContent .rankEle .rankBox .skillBlock .skillLink {
+  color: rgba(207, 239, 29, 0.8);
+  text-decoration: underline;
+  font-size: 18px;
+}
+.charmContent .rankEle .rankBox .skillBlock .skillLink:hover {
+  color: rgba(207, 239, 29, 1);
+}
+.charmContent .rankEle .rankBox .craftingFlex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+}
+.charmContent .rankEle .rankBox .craftingFlex .craftItemHead {
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+.charmContent .rankEle .rankBox .craftingFlex .materialLink {
+  color: rgba(207, 239, 29, 0.8);
+  text-decoration: underline;
+}
+.charmContent .rankEle .rankBox .craftingFlex .materialLink:hover {
+  color: rgba(207, 239, 29, 1);
+}
+.charmContent .rankEle .rankBox .craftingFlex #itemHead {
+  text-align: center;
+}
+.charmContent .rankEle .rankBox .craftingFlex #itemHead .itemEle {
+  padding: 4px 0;
+  text-align: left;
+}
+.charmContent .rankEle .arrowBox {
+  font-size: 40px;
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: #cfee1d;
+}
+.charmContent .rankEle:last-child .arrowBox {
+  visibility: hidden;
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .charmContent .charmTitle {
+    font-size: 20px;
+    line-height: 20px;
+    margin: 0 auto 45px auto;
+  }
+  .charmContent .rankEle .rankBox {
+    width: 280px;
+  }
+  .charmContent .rankEle .rankBox .skillBlock .skillLink {
+    font-size: 16px;
+  }
+  .charmContent .rankEle .rankBox .skillBlock .skillDesc {
+    font-size: 12px;
+  }
+  .charmContent .rankEle .rankBox .craftingFlex .craftItemHead {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .charmContent .rankEle .rankBox .craftingFlex #itemHead {
+    text-align: left;
+  }
+}

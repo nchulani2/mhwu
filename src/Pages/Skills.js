@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import RouteTitle from '../Components/RouteTitle';
-import Loading from '../Components/Loading';
-import InputFilter from '../Components/InputFilter';
-import SkillsList from '../Components/SkillsList';
+import RouteTitle from 'src/Components/RouteTitle';
+import Loading from 'src/Components/Loading';
+import InputFilter from 'src/Components/InputFilter';
+import SkillsList from 'src/Components/Skills/SkillsList';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getSkills } from '../Actions';
+import { getSkills } from 'src/Actions';
 
 class Skills extends Component {
   filterSkillsResults = () => {

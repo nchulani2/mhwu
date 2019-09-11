@@ -23,7 +23,7 @@ export default (state = monsterState, action) => {
         smallActive: false,
         loading: false
       };
-    case 'GET_SPEC':
+    case 'GET_SPEC_MONSTER':
       return {
         ...state,
         monsterData: [action.payload],
@@ -33,7 +33,6 @@ export default (state = monsterState, action) => {
     case 'LOADING':
       return {
         ...state,
-        monsterData: [],
         loading: true
       };
     default:

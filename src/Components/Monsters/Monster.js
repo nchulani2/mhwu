@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Tilt from 'react-tilt';
 // import Modal from 'react-modal';
 // import ModalContent from './ModalContent';
-import '../Style/Monster.css';
+import 'src/Style/Monster.css';
 
 class Monster extends Component {
   state = {
@@ -49,7 +49,7 @@ class Monster extends Component {
         onMouseEnter={this.entered}
         onMouseMove={this.entered}
         onMouseLeave={this.entered}>
-        <Tilt className="tilt" options={this.tiltOptions}>
+        <Tilt className="tiltMonster" options={this.tiltOptions}>
           <div
             className="tiltInner"
             style={{

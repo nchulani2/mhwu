@@ -3,7 +3,7 @@
   cursor: pointer;
 }
 
-.tilt {
+.tiltMonster {
   border-radius: 8px;
   height: 400px;
   width: 250px;
@@ -16,12 +16,12 @@
     rgba(207, 239, 29, 0.8) 85%
   );
   transform-style: preserve-3d;
-  border: rgba(207, 239, 29, 1);
+  border: rgb(207, 239, 29);
   border-style: solid;
   border-width: thin;
 }
 
-.tilt .tiltInner {
+.tiltMonster .tiltInner {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -45,7 +45,7 @@
   align-items: center;
 }
 
-.tilt .deets {
+.tiltMonster .deets {
   font-family: 'MedievalSharp', cursive;
   position: absolute;
   bottom: 20%;

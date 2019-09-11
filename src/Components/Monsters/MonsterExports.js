@@ -1,13 +1,13 @@
 import {
-  Aptonoth, Jagras, Mernos, Vespoid, Mosswine, Apceros, Kestodon, Noios, Gajau, Kelbi, Raphinos, Shamos, Girros, Hornetaur, Gastodon, Barnos, GreatJagras, KuluYaKu, PukeiPukei, Barroth, Jyuratodus, TobiKadachi, Anjanath, AzureRathalos, Bazelgeuse, Behemoth, Deviljho, Diablos, BlackDiablos, Dodogama, GreatGirros, Kirin, KulveTaroth, KushalaDaora, Lavasioth, Legiana, Lunastra, Nergigante, Odogaron, Paolumu, Radobaan, Rathalos, Rathian, PinkRathian, Teostra, TzitziYaKu, Uragaan, VaalHazak, Xenojiiva, ZorahMagdaros, Leshen, AncientLeshen} from '../exports/MonsterIconsExports';
+  Aptonoth, Jagras, Mernos, Vespoid, Mosswine, Apceros, Kestodon, Noios, Gajau, Kelbi, Raphinos, Shamos, Girros, Hornetaur, Gastodon, Barnos, GreatJagras, KuluYaKu, PukeiPukei, Barroth, Jyuratodus, TobiKadachi, Anjanath, AzureRathalos, Bazelgeuse, Behemoth, Deviljho, Diablos, BlackDiablos, Dodogama, GreatGirros, Kirin, KulveTaroth, KushalaDaora, Lavasioth, Legiana, Lunastra, Nergigante, Odogaron, Paolumu, Radobaan, Rathalos, Rathian, PinkRathian, Teostra, TzitziYaKu, Uragaan, VaalHazak, Xenojiiva, ZorahMagdaros, Leshen, AncientLeshen} from 'src/exports/MonsterIconsExports';
   
   import {
     AptonothImg, JagrasImg, MernosImg, VespoidImg, MosswineImg, ApcerosImg, KestodonImg, NoiosImg, GajauImg,KelbiImg, RaphinosImg, ShamosImg, GirrosImg, HornetaurImg, GastodonImg, BarnosImg, GreatJagrasImg, KuluYaKuImg, PukeiPukeiImg, BarrothImg, JyuratodusImg, TobiKadachiImg, AnjanathImg, AzureRathalosImg, BazelgeuseImg, BehemothImg, DeviljhoImg, DiablosImg, BlackDiablosImg, DodogamaImg, GreatGirrosImg, KirinImg, KulveTarothImg, KushalaDaoraImg, LavasiothImg, LegianaImg, LunastraImg, NergiganteImg, OdogaronImg, PaolumuImg, RadobaanImg, RathalosImg, RathianImg, PinkRathianImg, TeostraImg, TzitziYaKuImg, UragaanImg, VaalHazakImg, XenojiivaImg, ZorahMagdarosImg, LeshenImg, AncientLeshenImg
-  } from '../exports/MonsterImagesExports';
+  } from 'src/exports/MonsterImagesExports';
   
   // import {Water, Thunder, Ice, Dragon, Fire} from './ElementalExports'
 
-  import { Blastblight, Bleeding, DragonBlight, EffluvialBuildup, Fireblight, Iceblight, Paralysis, Poison, Sleep, Stun, Thunderblight, Waterblight, WindPressure, DefenseDown, Muddy} from '../exports/BlightExports'
+  import { Blastblight, Bleeding, DragonBlight, EffluvialBuildup, Fireblight, Iceblight, Paralysis, Poison, Sleep, Stun, Thunderblight, Waterblight, WindPressure, DefenseDown, Muddy} from 'src/exports/BlightExports'
 
 // Undefined at indexes 0, 45-48 due to API setup
 const Monsters = [undefined, Aptonoth, Jagras, Mernos, Vespoid, Mosswine, Apceros, Kestodon, Noios, Gajau, Kelbi, Raphinos, Shamos, Girros, Hornetaur, Gastodon, Barnos, GreatJagras, KuluYaKu, PukeiPukei, Barroth, Jyuratodus, TobiKadachi, Anjanath, AzureRathalos, Bazelgeuse, Behemoth, Deviljho, Diablos, BlackDiablos, Dodogama, GreatGirros, Kirin, KulveTaroth, KushalaDaora, Lavasioth, Legiana, Lunastra, Nergigante, Odogaron, Paolumu, Radobaan, Rathalos, Rathian, PinkRathian, Teostra, undefined, undefined, TzitziYaKu, Uragaan, VaalHazak, Xenojiiva, ZorahMagdaros, Leshen, AncientLeshen];
