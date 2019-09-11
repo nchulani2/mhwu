@@ -20,7 +20,7 @@
 
 ## Development
 
-**Want to run this locally? It's easy! No API Key needed**
+**Want to run this locally? No API Key needed!**
 
 ```
 git clone https://github.com/nchulani2/mhwu
