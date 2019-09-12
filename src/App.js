@@ -8,6 +8,7 @@ import Skills from './Pages/Skills';
 import Skill from './Pages/Skill';
 import Monsters from './Pages/Monsters';
 import Monster from './Pages/Monster';
+import Armors from './Pages/Armors';
 import Armor from './Pages/Armor';
 import Error from './Pages/Error';
 import Charms from './Pages/Charms';
@@ -23,7 +24,8 @@ const App = () => {
         <Route exact path="/skills/:skillId" component={Skill}></Route>
         <Route exact path="/monsters" component={Monsters}></Route>
         <Route path="/monsters/:monsterId" component={Monster}></Route>
-        <Route path="/armor" component={Armor}></Route>
+        <Route path="/armors" component={Armors}></Route>
+        <Route path="/armors/:armorId" component={Armor}></Route>
         <Route exact path="/charms" component={Charms}></Route>
         <Route exact path="/charms/:charmId" component={Charm}></Route>
         <Route component={Error}></Route>

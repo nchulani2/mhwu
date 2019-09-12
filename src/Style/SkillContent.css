@@ -1,0 +1,70 @@
+.skillContent {
+  color: white;
+  position: relative;
+  top: 0;
+  right: 0;
+  font-family: 'MedievalSharp', cursive;
+  padding: 40px 0 70px 0;
+  animation-delay: 0.2s;
+}
+.skillContentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  grid-auto-rows: minmax(100px, auto);
+  justify-content: center;
+  align-content: stretch;
+  width: 80%;
+  margin: 0 10%;
+  height: 100%;
+  grid-gap: 20px;
+}
+
+.skillContent .skillTitle {
+  font-size: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  width: 50%;
+}
+.skillContent .skillDesc {
+  color: rgba(207, 239, 29, 1);
+  text-align: center;
+  margin: 0 auto 40px auto;
+  font-size: 16px;
+  width: 80%;
+}
+.skillContent .rankBox {
+  width: 350px;
+  height: 100%;
+  background: #242424;
+  border-radius: 2px;
+  padding: 15px;
+  font-weight: bolder;
+  text-align: left;
+}
+.skillContent .rankBox .rankLevel {
+  font-size: 20px;
+  letter-spacing: 2px;
+  padding-bottom: 15px;
+}
+.skillContent .rankBox .modifierDesc {
+  color: rgba(207, 239, 29, 1);
+}
+@media (max-width: 480px) {
+  .skillTitle {
+    font-size: 25px;
+    line-height: 25px;
+  }
+  .skillContentGrid {
+    width: 90%;
+    margin: 0 5%;
+    grid-template-columns: repeat(auto-fit, minmax(190px, auto));
+  }
+  .skillContent .rankBox {
+    width: 250px;
+  }
+  .skillContent .rankBox .rankLevel {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+}

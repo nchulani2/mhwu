@@ -10,21 +10,19 @@ import { getSkills } from 'src/Actions';
 class Skills extends Component {
   filterSkillsResults = () => {
     // Basically, this works by matching the index of the DOM represented name with the user's input name
-    var inputVal, list, link, details, textValue;
+    var inputVal, list, link, details;
     //   Value from user input to be
     inputVal = document.getElementById('inputEle').value.toUpperCase();
     // grid List
-    list = document.querySelector('.skillsList');
+    list = document.querySelector('.skillGrid');
     //   Each link
-    link = list.getElementsByClassName('FILTER');
+    link = list.getElementsByClassName('filterSkills');
 
     for (let i = 0; i < link.length; i++) {
       //   getting the area where details is represented in the DOM
-      details = link[i].getElementsByClassName('FILTER-CHECKER')[0];
-      // getting that inner text
-      textValue = details.textContent || details.innerText;
-      // check if
-      if (textValue.toUpperCase().indexOf(inputVal) > -1) {
+      details = link[i].textContent || link[i].innerText;
+
+      if (details.toUpperCase().indexOf(inputVal) > -1) {
         // NOTE indexOF returns -1 if that character is not present in the array
         link[i].style.display = '';
       } else {
@@ -43,11 +41,12 @@ class Skills extends Component {
       <div
         style={{
           width: '100%',
-          height: loading ? '100vh' : '100%'
+          height: loading ? '100vh' : '100%',
+          padding: '90px 0'
         }}>
         <RouteTitle titleText="skills"></RouteTitle>
         {skillData.length !== 0 && !loading ? (
-          <div style={{ padding: '80px 0' }}>
+          <div>
             <InputFilter
               filterResults={this.filterSkillsResults}
               placeholderText="skill"></InputFilter>

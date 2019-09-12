@@ -4,7 +4,7 @@
   top: 0;
   right: 0;
   font-family: 'MedievalSharp', cursive;
-  padding: 25px 0 70px 0;
+  padding: 40px 0 70px 0;
   animation-delay: 0.2s;
 }
 
@@ -18,14 +18,14 @@
 
 .charmContent .rankEle .rankBox {
   width: 450px;
+  height: 100%;
   margin: 0px auto 70px auto;
   background: #242424;
   border-radius: 2px;
-  padding: 15px;
+  padding: 15px 20px 30px 20px;
   font-weight: bolder;
 }
 .charmContent .rankEle .rankBox .rankLevel {
-  text-align: center;
   font-size: 20px;
   letter-spacing: 2px;
   text-align: right;
@@ -94,8 +94,8 @@
 
 @media (max-width: 480px) {
   .charmContent .charmTitle {
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 25px;
+    line-height: 25px;
     margin: 0 auto 45px auto;
   }
   .charmContent .rankEle .rankBox {

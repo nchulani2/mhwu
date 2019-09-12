@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import Rater from 'react-rater';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import 'react-rater/lib/react-rater.css';
 import 'src/Style/MonsterContent.css';
 
 class MonsterContent extends Component {
+  capitIt = {
+    textTransform: 'capitalize'
+  };
+  flexIt = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  };
+  rewardTitles = {
+    fontSize: '14px',
+    color: 'rgba(208, 238, 29, 0.7)',
+    textTransform: 'uppercase',
+    paddingBottom: '5px'
+  };
+
   getRandomKey = length => {
     // generated random key that is length # of characters long to avoid matching key props
     var result = '';
@@ -17,19 +33,32 @@ class MonsterContent extends Component {
     return result;
   };
 
-  // Regex for capitalizing first letter in a word
-  upperCaseFirst = str => {
-    return str.replace(/^\w/, firstLetter => firstLetter.toUpperCase());
+  weaknessStars = weaknesses => {
+    return weaknesses.filter(weakness => weakness.stars > 1);
   };
 
-  threeWeakness = weaknesses => {
-    return weaknesses.filter(weakness => weakness.stars > 2);
+  filterStatus = toBeFiltered => {
+    const filtered = [];
+    toBeFiltered.forEach(filter => {
+      var n = filter.element;
+      if (
+        n === 'fire' ||
+        n === 'water' ||
+        n === 'thunder' ||
+        n === 'dragon' ||
+        n === 'ice'
+      ) {
+        filtered.push({
+          element: n,
+          stars: filter.stars
+        });
+      }
+    });
+    return _.sortBy(filtered, ['stars']).reverse();
   };
-  twoWeakness = weaknesses => {
-    return weaknesses.filter(weakness => weakness.stars === 2);
-  };
-  oneWeakness = weaknesses => {
-    return weaknesses.filter(weakness => weakness.stars === 1);
+
+  resistanceStars = resistances => {
+    return resistances.filter(resistance => resistance.stars <= 1);
   };
 
   lowRankRewards = rewards => {
@@ -43,9 +72,11 @@ class MonsterContent extends Component {
     const { monster } = this.props;
     const monstie = monster[0];
 
-    const threeStars = this.threeWeakness(monstie.weaknesses);
-    const twoStars = this.twoWeakness(monstie.weaknesses);
-    const oneStars = this.oneWeakness(monstie.weaknesses);
+    const filteredWeaknesses = this.weaknessStars(monstie.weaknesses);
+    const weaknessFilt = this.filterStatus(filteredWeaknesses);
+
+    const filteredResistances = this.resistanceStars(monstie.weaknesses);
+    const resistanceFilt = this.filterStatus(filteredResistances);
 
     const lowRankRewards = this.lowRankRewards(monstie.rewards);
     const highRankRewards = this.highRankRewards(monstie.rewards);
@@ -57,276 +88,173 @@ class MonsterContent extends Component {
         <div className="imgBlock">
           <img src={monstie.image} alt={'A monster from MHW'} />
         </div>
-        <table className="tableHoc">
-          {/* NOTE TYPE */}
-          <tbody style={{ borderTop: '2px solid rgba(208, 238, 29, 1)' }}>
-            <tr>
-              <th className="tableHeaders">Type</th>
-              <td className="tableInfos">
-                {monstie.type ? this.upperCaseFirst(monstie.type) : 'N/a'}
-              </td>
-            </tr>
-          </tbody>
-          {/* NOTE SPECIES */}
-          <tbody>
-            <tr>
-              <th className="tableHeaders">Species</th>
-              <td
-                className="tableInfos"
-                style={{ textTransform: 'capitalize' }}>
-                {monstie.species ? monstie.species : 'N/a'}
-              </td>
-            </tr>
-          </tbody>
-          {/* NOTE ELEMENTS */}
-          <tbody>
-            <tr>
-              <th
-                className="tableHeaders"
-                rowSpan={
-                  monstie.elements.length !== 0
-                    ? monstie.elements.length + 1
-                    : monstie.elements.length
-                }>
-                Elements
-              </th>
-              {monstie.elements.length === 0 ? (
-                <td className="tableInfos">N/a</td>
-              ) : null}
-            </tr>
-            {monstie.elements.length !== 0
-              ? monstie.elements.map(element => (
-                  <tr key={this.getRandomKey(10)}>
-                    <td className="tableInfos">
-                      {this.upperCaseFirst(element)}
-                    </td>
-                  </tr>
+        {/* NOTE FIXED POSITIONING ELEMENTS */}
+        <div className="leftBox animated bounceInLeft faster">
+          {/* TYPE */}
+          <div className="monsterAttr">
+            <div className="monsterTitles">Type</div>
+            <div style={{ ...this.capitIt }}>
+              {monstie.type ? monstie.type : 'N/a'}
+            </div>
+          </div>
+          {/* SPECIES */}
+          <div className="monsterAttr">
+            <div className="monsterTitles">Species</div>
+            <div style={{ ...this.capitIt }}>
+              {monstie.species ? monstie.species : 'N/a'}
+            </div>
+          </div>
+          {/* ELEMENTS */}
+          <div className="monsterAttr">
+            <div className="monsterTitles">Elements</div>
+            <div style={{ ...this.capitIt }}>
+              {monstie.elements.length !== 0 ? (
+                monstie.elements.map(element => (
+                  <div key={this.getRandomKey(10)}>{element}</div>
                 ))
-              : null}
-          </tbody>
-          <tbody>
-            <tr>
-              <th
-                className="tableHeaders"
-                rowSpan={
-                  monstie.ailments.length !== 0
-                    ? monstie.ailments.length + 1
-                    : monstie.ailments.length
-                }>
-                Ailments
-              </th>
-              {monstie.ailments.length === 0 ? (
-                <td className="tableInfos">N/a</td>
-              ) : null}
-            </tr>
-            {monstie.ailments.length !== 0
-              ? monstie.ailments.map(ailment => (
-                  <tr key={ailment.id}>
-                    <td className="tableInfos">
-                      {this.upperCaseFirst(ailment.name)}
-                      <img
-                        className="iconElements"
-                        src={ailment.icon}
-                        alt={ailment.description}
-                      />
-                    </td>
-                  </tr>
+              ) : (
+                <div>N/a</div>
+              )}
+            </div>
+          </div>
+          {/* AILMENTS */}
+          <div className="monsterAttr">
+            <div className="monsterTitles">Ailments</div>
+            <div style={{ ...this.capitIt }}>
+              {monstie.ailments.length !== 0 ? (
+                monstie.ailments.map(ailment => (
+                  <div style={{ ...this.flexIt }} key={ailment.id}>
+                    {ailment.name}
+                    <img
+                      style={{ width: '18px', marginLeft: '5px' }}
+                      src={ailment.icon}
+                      alt={ailment.description}></img>
+                  </div>
                 ))
-              : null}
-          </tbody>
-
-          {/* NOTE THREESTARS */}
-          <tbody>
-            <tr>
-              <th
-                className="tableHeaders"
-                rowSpan={
-                  threeStars.length !== 0
-                    ? threeStars.length + 1
-                    : threeStars.length
-                }>
-                Weaknesses
-              </th>
-
-              {threeStars.length === 0 ? (
-                <td className="tableInfos">N/a</td>
-              ) : null}
-            </tr>
-            {threeStars.length !== 0
-              ? threeStars.map(weakness => (
-                  <tr key={this.getRandomKey(20)}>
-                    <td className="tableInfos">
-                      {this.upperCaseFirst(weakness.element)}
-                      <Rater
-                        total={3}
-                        rating={weakness.stars}
-                        interactive={false}
-                      />
-                    </td>
-                  </tr>
+              ) : (
+                <div>N/a</div>
+              )}
+            </div>
+          </div>
+          {/* WEAKNESSES */}
+          <div className="monsterAttr">
+            <div className="monsterTitles">Weaknesses</div>
+            <div
+              style={{
+                ...this.capitIt
+              }}>
+              {weaknessFilt.length !== 0 ? (
+                weaknessFilt.map(weakness => (
+                  <div
+                    style={{ ...this.flexIt, alignItems: 'baseline' }}
+                    key={this.getRandomKey(10)}>
+                    {weakness.element}
+                    <Rater
+                      total={3}
+                      rating={weakness.stars}
+                      interactive={false}
+                    />
+                  </div>
                 ))
-              : null}
-          </tbody>
-          {/* NOTE TWOSTARS */}
-          <tbody>
-            <tr>
-              <th
-                className="tableHeaders"
-                rowSpan={
-                  twoStars.length !== 0 ? twoStars.length + 1 : twoStars.length
-                }>
-                moderate weaknesses
-              </th>
-              {twoStars.length === 0 ? (
-                <td className="tableInfos">N/a</td>
-              ) : null}
-            </tr>
-            {twoStars.length !== 0
-              ? twoStars.map(weakness => (
-                  <tr key={this.getRandomKey(20)}>
-                    <td className="tableInfos">
-                      {this.upperCaseFirst(weakness.element)}
-                      <Rater
-                        total={3}
-                        rating={weakness.stars}
-                        interactive={false}
-                      />
-                    </td>
-                  </tr>
+              ) : (
+                <div>N/a</div>
+              )}
+            </div>
+          </div>
+        </div>
+        {/* LOW DAMAGE */}
+        <div className="rightBox animated bounceInRight faster">
+          <div className="monsterAttr">
+            <div className="monsterTitles">Low Damage</div>
+            <div
+              style={{
+                ...this.capitIt
+              }}>
+              {resistanceFilt.length !== 0 ? (
+                resistanceFilt.map(lowDamage => (
+                  <div
+                    style={{
+                      ...this.flexIt,
+                      justifyContent: 'space-evenly',
+                      alignItems: 'baseline'
+                    }}
+                    key={this.getRandomKey(10)}>
+                    {lowDamage.element}
+                    <Rater
+                      total={3}
+                      rating={lowDamage.stars}
+                      interactive={false}
+                    />
+                  </div>
                 ))
-              : null}
-          </tbody>
-          {/* NOTE ONESTARS */}
-          <tbody>
-            <tr>
-              <th
-                className="tableHeaders"
-                rowSpan={
-                  oneStars.length !== 0 ? oneStars.length + 1 : oneStars.length
-                }>
-                Minimum weaknesses
-              </th>
-              {oneStars.length === 0 ? (
-                <td className="tableInfos">N/a</td>
-              ) : null}
-            </tr>
-            {oneStars.length !== 0
-              ? oneStars.map(weakness => (
-                  <tr key={this.getRandomKey(20)}>
-                    <td className="tableInfos">
-                      {this.upperCaseFirst(weakness.element)}
-                      <Rater
-                        total={3}
-                        rating={weakness.stars}
-                        interactive={false}
-                      />
-                    </td>
-                  </tr>
+              ) : (
+                <div>N/a</div>
+              )}
+            </div>
+          </div>
+          {/* RESISTANCES */}
+          <div className="monsterAttr">
+            <div className="monsterTitles">Resistances</div>
+            <div
+              style={{
+                ...this.capitIt
+              }}>
+              {monstie.resistances.length !== 0 ? (
+                monstie.resistances.map(resistance => (
+                  <div key={this.getRandomKey(10)}>{resistance.element}</div>
                 ))
-              : null}
-          </tbody>
-          {/* NOTE RESISTANCES */}
-          <tbody>
-            <tr>
-              <th
-                className="tableHeaders"
-                rowSpan={
-                  monstie.resistances.length !== 0
-                    ? monstie.resistances.length + 1
-                    : monstie.resistances.length
-                }>
-                resistances
-              </th>
-              {monstie.resistances.length === 0 ? (
-                <td className="tableInfos">N/a</td>
-              ) : null}
-            </tr>
-            {monstie.resistances.length !== 0
-              ? monstie.resistances.map(resistance => (
-                  <tr key={this.getRandomKey(20)}>
-                    <td className="tableInfos">
-                      {this.upperCaseFirst(resistance.element)}
-                    </td>
-                  </tr>
-                ))
-              : null}
-          </tbody>
-          {/* NOTE LOCATIONS */}
-          <tbody className="lastTr">
-            <tr>
-              <th
-                className="tableHeaders"
-                rowSpan={
-                  monstie.locations.length !== 0
-                    ? monstie.locations.length + 1
-                    : monstie.locations.length
-                }>
-                Locations
-              </th>
-              {monstie.locations.length === 0 ? (
-                <td className="tableInfos">N/a</td>
-              ) : null}
-            </tr>
-            {monstie.locations.length !== 0
-              ? monstie.locations.map(location => (
-                  <tr key={location.id}>
-                    <td className="tableInfos">
-                      {location.name} <span>[{location.zoneCount}]</span>
-                    </td>
-                  </tr>
-                ))
-              : null}
-          </tbody>
-        </table>
-
-        {/*  NOTE REWARDS */}
-        <table className="tableHoc">
-          <caption className="rewardCaption">rewards [low]</caption>
-          <tbody id="rewardTr">
-            <tr>
-              <th className="rewardHeaders">Name</th>
-              <th className="rewardHeaders">description</th>
-            </tr>
-            {lowRankRewards.length !== 0 ? (
-              lowRankRewards.map(reward => (
-                <tr key={reward.id} className="bodyTable">
-                  <td className="rewardNames">{reward.item.name}</td>
-                  <td className="rewardInfos">{reward.item.description}</td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="2" className="tableInfos">
-                  No Rewards Available
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-
-        <table className="tableHoc">
-          <caption className="rewardCaption">rewards [high]</caption>
-          <tbody id="rewardTr">
-            <tr>
-              <th className="rewardHeaders">Name</th>
-              <th className="rewardHeaders">description</th>
-            </tr>
-            {highRankRewards.length !== 0 ? (
-              highRankRewards.map(reward => (
-                <tr key={reward.id} className="bodyTable">
-                  <td className="rewardNames">{reward.item.name}</td>
-                  <td className="rewardInfos">{reward.item.description}</td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="2" className="tableInfos">
-                  No Rewards Available
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+              ) : (
+                <div>N/a</div>
+              )}
+            </div>
+          </div>
+          {/* REWARDS */}
+          <div className="monsterAttr">
+            <div className="monsterTitles">Rewards</div>
+            <div className="rewardsFlex">
+              {/* LOW */}
+              <div style={{ textAlign: 'left', paddingRight: '8px' }}>
+                <div style={{ ...this.rewardTitles }}>low rank</div>
+                <div
+                  style={{
+                    ...this.capitIt
+                  }}>
+                  {lowRankRewards.length !== 0 ? (
+                    lowRankRewards.map(lowRank => (
+                      <div key={lowRank.id} className="rankBox">
+                        <Link to="" className="rewardLink">
+                          {lowRank.item.name}
+                        </Link>
+                      </div>
+                    ))
+                  ) : (
+                    <div>N/a</div>
+                  )}
+                </div>
+              </div>
+              {/* HIGH */}
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ ...this.rewardTitles }}>high rank</div>
+                <div
+                  style={{
+                    ...this.capitIt
+                  }}>
+                  {highRankRewards.length !== 0 ? (
+                    highRankRewards.map(highRank => (
+                      <div key={highRank.id} className="rankBox">
+                        <Link to="" className="rewardLink">
+                          {highRank.item.name}
+                        </Link>
+                      </div>
+                    ))
+                  ) : (
+                    <div>N/a</div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

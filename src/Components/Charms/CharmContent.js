@@ -18,7 +18,7 @@ const romanChars = rankNum => {
 const CharmContent = props => {
   const { charm } = props;
   const charmie = charm[0];
-  console.log(charmie);
+  // console.log(charmie);
 
   return (
     <div className="charmContent ui container animated fadeIn faster">
@@ -26,14 +26,14 @@ const CharmContent = props => {
       {charmie.ranks.length !== 0
         ? charmie.ranks.map(rank => (
             <div className="rankEle" key={rank.name}>
-              <div
-                className="rankBox"
-                style={{ height: rank.skills.length > 1 ? '340px' : '280px' }}>
+              <div className="rankBox">
                 <div className="rankLevel">Level {romanChars(rank.level)}</div>
                 {rank.skills.length !== 0
                   ? rank.skills.map(skill => (
                       <div key={skill.id} className="skillBlock">
-                        <Link to="/skills" className="skillLink">
+                        <Link
+                          to={`/skills/${skill.skill}`}
+                          className="skillLink">
                           {skill.skillName}
                         </Link>
 

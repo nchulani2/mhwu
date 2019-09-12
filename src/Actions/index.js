@@ -82,8 +82,8 @@ export const getSpecMonster = id => async (dispatch, getState) => {
   // Behaves as sort of a caching feature for an individual monster
   dispatch(loading());
   const data = getState().data;
-  console.log(data);
-  if (data.monsterData.length !== 0) {
+
+  if (data.monsterData.length !== 0 && data.monsterData.length > 2) {
     const monsterEle = data.monsterData.filter(
       monster => monster.id === Number(id)
     );
@@ -122,13 +122,25 @@ export const getSkills = () => async dispatch => {
   dispatch({ type: 'GET_SKILLS', payload: response.data });
 };
 
-export const getSpecSkill = () => async dispatch => {};
+export const getSpecSkill = id => async (dispatch, getState) => {
+  dispatch(loading());
+  const skills = getState().skills;
+
+  if (skills.skillData.length !== 0 && skills.skillData.length > 2) {
+    const skillEle = skills.skillData.filter(skill => skill.id === Number(id));
+
+    dispatch({ type: 'GET_SPEC_SKILL', payload: skillEle[0] });
+  } else {
+    const response = await monsterhunter.get(`/skills/${id}`);
+
+    dispatch({ type: 'GET_SPEC_SKILL', payload: response.data });
+  }
+};
 // END SKILLS
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
 // START CHARMS
-
 export const getCharms = () => async dispatch => {
   dispatch(loading());
   const response = await monsterhunter.get('/charms');
@@ -140,7 +152,7 @@ export const getSpecCharm = id => async (dispatch, getState) => {
   dispatch(loading());
   const charms = getState().charms;
 
-  if (charms.charmData.length !== 0) {
+  if (charms.charmData.length !== 0 && charms.charmData.length > 2) {
     const charmEle = charms.charmData.filter(charm => charm.id === Number(id));
 
     dispatch({ type: 'GET_SPEC_CHARM', payload: charmEle[0] });

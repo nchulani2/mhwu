@@ -1,91 +1,58 @@
-.skillsList {
-  color: white;
-  font-family: 'MedievalSharp', cursive;
-  padding: 20px 0;
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, auto));
+  grid-auto-rows: minmax(135px, auto);
+  justify-content: center;
+  align-content: stretch;
+  width: 90%;
+  margin: 0 5%;
+  height: 100%;
+  grid-gap: 20px;
 }
 
-.skillsList table,
-.skillsList table .mainHeader {
-  border: thin solid rgba(208, 238, 29, 0.6);
-  border-collapse: collapse;
+.skillComp {
   padding: 20px;
+  background: linear-gradient(
+    100deg,
+    rgba(207, 239, 29, 0.8) 8%,
+    #161616 8%,
+    #161616 92%,
+    rgba(207, 239, 29, 0.8) 90%
+  );
+  height: 100%;
+  width: 100%;
+  border-radius: 2px;
   text-align: center;
-  text-transform: uppercase;
-  color: rgba(208, 238, 29, 1);
+  transition: all ease 0.2s;
 }
 
-.skillsList table .mainHeader {
-  font-size: 16px;
-  font-weight: bolder;
-  letter-spacing: 2px;
+.skillComp img {
+  opacity: 0.5;
+  transition: all ease 0.2s;
 }
-.skillsList table .FILTER:nth-child(odd) {
-  background: #262626;
-}
-
-.skillsList table .mainHeader:nth-child(1) {
-  width: 20%;
-}
-
-.skillsList table .mainHeader:nth-child(2) {
-  width: 30%;
-}
-
-.skillsList table .mainHeader:nth-child(3) {
-  width: 80%;
-}
-
-.skillsList table .icon-td,
-.skillsList table .skill-td {
-  border: thin solid rgba(208, 238, 29, 0.6);
-  padding: 20px;
-  text-align: center;
-  text-transform: none;
-  font-size: 16px;
-  color: rgba(208, 238, 29, 1);
-}
-.skillsList table .skill-td a {
-  color: rgba(208, 238, 29, 0.8);
+.skillComp .skillDeets {
+  padding-top: 15px;
+  color: rgba(207, 239, 29, 1);
   text-decoration: underline;
-}
-.skillsList table .skill-td a:hover {
-  color: rgba(208, 238, 29, 1);
-}
-.skillsList table .skill-td .skill-desc {
+  font-family: 'MedievalSharp', cursive;
   font-size: 14px;
-  color: white;
-}
-.skillsList table .reg-td {
-  border: thin solid rgba(208, 238, 29, 0.6);
-  padding: 20px;
-  color: white;
-  text-align: left;
-  text-transform: none;
+  line-height: 25px;
+  letter-spacing: 1px;
 }
 
-@media (max-width: 499px) {
-  .skillsList {
-    padding: 10px 0;
-  }
-  .skillsList table .mainHeader {
-    font-size: 14px;
-    letter-spacing: 1px;
-  }
-  .skillsList table .icon-td,
-  .skillsList table .skill-td {
-    padding: 5px;
-    font-size: 14px;
-  }
-  .skillsList table .reg-td {
-    padding: 5px;
-    font-size: 12px;
-    text-align: left;
-  }
-  .skillsList table .skill-td .skill-desc {
-    font-size: 12px;
-  }
-  .skillsList table .icon-td img {
-    width: 29px;
-    height: 30px;
-  }
+.skillComp:hover {
+  transform: translate(0, -5px);
+  background: linear-gradient(
+    100deg,
+    rgba(207, 239, 29, 0.8) 8%,
+    #262626 8%,
+    #262626 92%,
+    rgba(207, 239, 29, 0.8) 90%
+  );
+  transition: all ease 0.2s;
+}
+
+.skillComp:hover img {
+  opacity: 1;
+  transition: all ease 0.2s;
 }

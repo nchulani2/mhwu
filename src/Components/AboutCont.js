@@ -29,7 +29,7 @@ const AboutCont = props => {
           <div className="outerButt">
             <RouteButton
               buttonText="Armor"
-              buttonLink="armor"
+              buttonLink="armors"
               animDelay="0.2s"
               margin="0"
               padding="12px"

@@ -1,7 +1,7 @@
 .monsterGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, auto));
-  grid-auto-rows: minmax(400px, auto);
+  grid-auto-rows: minmax(350px, auto);
   justify-content: center;
   align-content: stretch;
   width: 90%;

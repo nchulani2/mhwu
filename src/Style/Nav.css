@@ -1,10 +1,10 @@
 .nav {
   position: fixed;
   top: 0;
-  right: 5%;
-  -webkit-transform: translate(5%, 0);
-  -ms-transform: translate(5%, 0);
-  transform: translate(5%, 0);
+  right: 2%;
+  -webkit-transform: translate(3%, 0);
+  -ms-transform: translate(3%, 0);
+  transform: translate(3%, 0);
   z-index: 90;
   animation-delay: 0.3s;
 }
@@ -243,6 +243,9 @@
 }
 
 @media (max-width: 499px) {
+  .nav {
+    right: 3%;
+  }
   .overlayMenu .flexAnchors a {
     font-size: 20px;
     line-height: 20px;

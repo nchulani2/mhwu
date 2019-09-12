@@ -40,7 +40,7 @@ class Charms extends Component {
         style={{
           width: '100%',
           height: loading ? '100vh' : '100%',
-          padding: loading ? '0px' : '80px 0px'
+          padding: loading ? '0px' : '90px 0px'
         }}>
         <RouteTitle titleText="Charms"></RouteTitle>
 
