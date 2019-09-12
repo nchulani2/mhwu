@@ -10,18 +10,18 @@ import thunk from 'redux-thunk';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 render(
-  <Provider
-    store={createStore(
-      reducers,
-      compose(
-        applyMiddleware(thunk),
-        window.__REDUX_DEVTOOLS_EXTENSION__ &&
-          window.__REDUX_DEVTOOLS_EXTENSION__()
-      )
-    )}>
-    <Router>
+  <Router>
+    <Provider
+      store={createStore(
+        reducers,
+        compose(
+          applyMiddleware(thunk),
+          window.__REDUX_DEVTOOLS_EXTENSION__ &&
+            window.__REDUX_DEVTOOLS_EXTENSION__()
+        )
+      )}>
       <App />
-    </Router>
-  </Provider>,
+    </Provider>
+  </Router>,
   document.querySelector('#root')
 );

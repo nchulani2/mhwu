@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import RouteTitle from '../Components/RouteTitle';
+import RouteTitle from 'src/Components/RouteTitle';
+import { connect } from 'react-redux';
+import { getArmorSets } from 'src/Actions';
 
-class Armor extends Component {
+class Armors extends Component {
+  componentDidMount = () => {
+    this.props.getArmorSets();
+  };
   render() {
     return (
       <div
@@ -28,5 +33,13 @@ class Armor extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return { data: state };
+};
 
-export default withRouter(Armor);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getArmorSets }
+  )(Armors)
+);

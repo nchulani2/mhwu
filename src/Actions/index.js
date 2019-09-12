@@ -165,6 +165,16 @@ export const getSpecCharm = id => async (dispatch, getState) => {
 // END CHARMS
 /* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
+// START ARMOR
+export const getArmorSets = async dispatch => {
+  const response = monsterhunter.get('/armor/sets');
+  console.log(response);
+};
+
+// END ARMOR
+/* -------------------------------------------------------------------------- */
+
 const loading = () => dispatch => {
   dispatch({ type: 'LOADING' });
 };
