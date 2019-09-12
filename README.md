@@ -1,6 +1,6 @@
 # MHWU [![Netlify Status](https://api.netlify.com/api/v1/badges/b8b12891-74a6-4c9c-adda-b2b4e4fe27db/deploy-status)](https://app.netlify.com/sites/mhwu/deploys)
 
-**MHW Monsties is a web application built with the React framework and Redux**
+**MHWU is a web application built with the React framework and Redux**
 
 **A running demo of the app can be found here at - [MHWU](https://mhwu.netlify.com/)**
 
