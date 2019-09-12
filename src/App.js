@@ -21,13 +21,13 @@ const App = () => {
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/about" component={About}></Route>
         <Route exact path="/skills" component={Skills}></Route>
-        <Route exact path="/skills/:skillId" component={Skill}></Route>
+        <Route path="/skills/:skillId" component={Skill}></Route>
         <Route exact path="/monsters" component={Monsters}></Route>
         <Route path="/monsters/:monsterId" component={Monster}></Route>
-        <Route path="/armors" component={Armors}></Route>
+        <Route exact path="/armors" component={Armors}></Route>
         <Route path="/armors/:armorId" component={Armor}></Route>
         <Route exact path="/charms" component={Charms}></Route>
-        <Route exact path="/charms/:charmId" component={Charm}></Route>
+        <Route path="/charms/:charmId" component={Charm}></Route>
         <Route component={Error}></Route>
       </Switch>
       <Nav />
