@@ -175,7 +175,7 @@ class MonsterContent extends Component {
                   <div
                     style={{
                       ...this.flexIt,
-                      justifyContent: 'space-evenly',
+                      justifyContent: 'center',
                       alignItems: 'baseline'
                     }}
                     key={this.getRandomKey(10)}>

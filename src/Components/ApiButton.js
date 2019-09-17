@@ -1,43 +1,23 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getSmallMonsters, getLargeMonsters } from '../Actions';
-
 import '../Style/ApiButtons.css';
 
 class ApiButtons extends Component {
-  handleMonsties = e => {
+  submitToHandle = e => {
     e.preventDefault();
-
-    switch (e.target.className) {
-      case 'smallMonsties':
-        if (this.props.currState) {
-          return;
-        } else {
-          this.props.getSmallMonsters();
-
-          break;
-        }
-
-      case 'largeMonsties':
-        if (this.props.currState) {
-          return;
-        } else {
-          this.props.getLargeMonsters();
-
-          break;
-        }
-
-      default:
-        return null;
+    // if monster page si present
+    if (this.props.handleMonsties) {
+      this.props.handleMonsties(e);
+    } else {
     }
+    // if armor page is present
   };
 
   render() {
     return (
       <button
         style={{ color: this.props.currState ? '#cfee1d' : '' }}
-        onClick={this.handleMonsties}
+        onClick={this.submitToHandle}
         className={this.props.class}
         id="buttonEle">
         {this.props.buttonText}
@@ -46,15 +26,4 @@ class ApiButtons extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { data: state.data };
-};
-export default withRouter(
-  connect(
-    mapStateToProps,
-    {
-      getSmallMonsters,
-      getLargeMonsters
-    }
-  )(ApiButtons)
-);
+export default withRouter(ApiButtons);

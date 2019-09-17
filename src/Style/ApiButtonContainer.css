@@ -1,0 +1,13 @@
+.apiButtonsContainer {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  z-index: 3;
+}

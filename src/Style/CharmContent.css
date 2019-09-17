@@ -45,6 +45,7 @@
 .charmContent .rankEle .rankBox .skillBlock .skillLink {
   color: rgba(207, 239, 29, 0.8);
   text-decoration: underline;
+  text-underline-position: under;
   font-size: 18px;
 }
 .charmContent .rankEle .rankBox .skillBlock .skillLink:hover {

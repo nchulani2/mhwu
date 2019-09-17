@@ -4,7 +4,7 @@ import '../Style/Error.css';
 import ErrorImg from '../Images/error.png';
 import RouteButton from '../Components/RouteButton';
 
-class Error extends Component {
+class ErrorPage extends Component {
   render() {
     return (
       <div className="error animated fadeIn faster">
@@ -34,4 +34,4 @@ class Error extends Component {
   }
 }
 
-export default withRouter(Error);
+export default withRouter(ErrorPage);

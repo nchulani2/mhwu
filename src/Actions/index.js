@@ -117,9 +117,12 @@ const addSkillIcon = skills => {
 export const getSkills = () => async dispatch => {
   dispatch(loading());
   const response = await monsterhunter.get('/skills');
+  const skills = _.chain(response.data)
+    .sortBy('name')
+    .value();
   addSkillIcon(response.data);
 
-  dispatch({ type: 'GET_SKILLS', payload: response.data });
+  dispatch({ type: 'GET_SKILLS', payload: skills });
 };
 
 export const getSpecSkill = id => async (dispatch, getState) => {
@@ -144,8 +147,11 @@ export const getSpecSkill = id => async (dispatch, getState) => {
 export const getCharms = () => async dispatch => {
   dispatch(loading());
   const response = await monsterhunter.get('/charms');
+  const charms = _.chain(response.data)
+    .sortBy('name')
+    .value();
 
-  dispatch({ type: 'GET_CHARMS', payload: response.data });
+  dispatch({ type: 'GET_CHARMS', payload: charms });
 };
 
 export const getSpecCharm = id => async (dispatch, getState) => {
@@ -167,9 +173,40 @@ export const getSpecCharm = id => async (dispatch, getState) => {
 
 /* -------------------------------------------------------------------------- */
 // START ARMOR
-export const getArmorSets = async dispatch => {
-  const response = monsterhunter.get('/armor/sets');
-  console.log(response);
+
+export const getLowArmorSets = () => async dispatch => {
+  dispatch(loading());
+  const response = await monsterhunter.get('/armor/sets?q={"rank":"low"}');
+  const armors = _.chain(response.data)
+    .sortBy('name')
+    .value();
+
+  dispatch({ type: 'GET_LOW_ARMOR_SETS', payload: armors });
+};
+
+export const getHighArmorSets = () => async dispatch => {
+  dispatch(loading());
+  const response = await monsterhunter.get('/armor/sets?q={"rank":"high"}');
+  const armors = _.chain(response.data)
+    .sortBy('name')
+    .value();
+
+  dispatch({ type: 'GET_HIGH_ARMOR_SETS', payload: armors });
+};
+
+export const getSpecArmorSet = id => async (dispatch, getState) => {
+  dispatch(loading());
+  var data = getState().armors;
+
+  if (data.armorData.length !== 0 && data.armorData.length > 2) {
+    const armorEle = data.armorData.filter(armor => armor.id === Number(id));
+
+    dispatch({ type: 'GET_SPEC_ARMOR_SET', payload: armorEle[0] });
+  } else {
+    const response = await monsterhunter.get(`/armor/sets/${id}`);
+
+    dispatch({ type: 'GET_SPEC_ARMOR_SET', payload: response.data });
+  }
 };
 
 // END ARMOR

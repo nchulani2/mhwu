@@ -24,7 +24,7 @@ class Charm extends Component {
         {skillData.length !== 0 ? (
           <SkillContent skill={skillData}></SkillContent>
         ) : (
-          <Loading loadingText="charm"></Loading>
+          <Loading loadingText="skill"></Loading>
         )}
       </div>
     );

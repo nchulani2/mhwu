@@ -138,12 +138,12 @@ class Nav extends Component {
               Skills
             </Link>
             <Link
-              to="/armor"
+              to="/armors"
               onClick={() => this.setState({ isOpen: false, playing: false })}
               className={`${
                 this.state.isOpen ? 'animated fadeInLeft faster' : 'hideIt'
               }`}>
-              Armor
+              Armors
             </Link>
             <Link
               to="/charms"

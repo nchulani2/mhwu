@@ -31,6 +31,7 @@
   left: 50%;
   color: rgba(207, 239, 29, 0.7);
   text-decoration: underline;
+  text-underline-position: under;
   font-family: 'MedievalSharp', cursive;
   font-size: 15px;
   line-height: 25px;

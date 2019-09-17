@@ -6,26 +6,10 @@ import RouteTitle from 'src/Components/RouteTitle';
 import InputFilter from 'src/Components/InputFilter';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getLargeMonsters } from 'src/Actions';
+import { getLargeMonsters, getSmallMonsters } from 'src/Actions';
+import 'src/Style/ApiButtonContainer.css';
 
 class Monsters extends Component {
-  state = {
-    filter: false
-  };
-  apiStyle = {
-    position: 'fixed',
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    bottom: '10px',
-    left: '50%',
-    transform: 'translate(-50%, 0)',
-    textAlign: 'center',
-    zIndex: '3'
-  };
-
   filterMonstersResults = () => {
     // Basically, this works by matching the index of the DOM represented name with the user's input name
     var inputVal, list, link, details, textValue;
@@ -51,6 +35,31 @@ class Monsters extends Component {
     }
   };
 
+  handleMonsties = e => {
+    e.preventDefault();
+
+    switch (e.target.className) {
+      case 'smallMonsties':
+        if (this.props.data.smallActive) {
+          return;
+        } else {
+          this.props.getSmallMonsters();
+          break;
+        }
+
+      case 'largeMonsties':
+        if (this.props.data.largeActive) {
+          return;
+        } else {
+          this.props.getLargeMonsters();
+          break;
+        }
+
+      default:
+        return null;
+    }
+  };
+
   componentDidMount = () => {
     this.props.getLargeMonsters();
   };
@@ -67,16 +76,6 @@ class Monsters extends Component {
         }}>
         <RouteTitle titleText="monsters"></RouteTitle>
 
-        <div style={{ ...this.apiStyle }}>
-          <ApiButton
-            class="largeMonsties"
-            buttonText="large monsters"
-            currState={largeActive}></ApiButton>
-          <ApiButton
-            class="smallMonsties"
-            buttonText="small monsters"
-            currState={smallActive}></ApiButton>
-        </div>
         {monsterData.length !== 0 && monsterData.length >= 2 && !loading ? (
           <div>
             <InputFilter
@@ -95,6 +94,18 @@ class Monsters extends Component {
               information
             </div>
             <MonsterList monsters={monsterData}></MonsterList>
+            <div className="apiButtonsContainer">
+              <ApiButton
+                class="largeMonsties"
+                buttonText="large monsters"
+                handleMonsties={this.handleMonsties}
+                currState={largeActive}></ApiButton>
+              <ApiButton
+                class="smallMonsties"
+                buttonText="small monsters"
+                handleMonsties={this.handleMonsties}
+                currState={smallActive}></ApiButton>
+            </div>
           </div>
         ) : (
           <Loading loadingText="monsties"></Loading>
@@ -111,6 +122,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { getLargeMonsters }
+    { getLargeMonsters, getSmallMonsters }
   )(Monsters)
 );

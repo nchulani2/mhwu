@@ -1,0 +1,130 @@
+.armorContent {
+  color: white;
+  position: relative;
+  top: 0;
+  right: 0;
+  font-family: 'MedievalSharp', cursive;
+  padding: 40px 0 70px 0;
+  animation-delay: 0.2s;
+}
+.armorContentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(600px, auto));
+  grid-auto-rows: auto;
+  justify-content: center;
+  align-content: stretch;
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
+  grid-gap: 20px;
+}
+
+.armorContent .armorTitle {
+  font-size: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 auto 30px auto;
+  width: 50%;
+}
+
+.armorContentGrid .pieceBox {
+  width: 100%;
+  height: auto;
+  background: #161616;
+  border-radius: 2px;
+  padding: 30px 15px;
+  font-weight: bolder;
+  text-align: left;
+  transition: all ease 0.2s;
+}
+.armorContentGrid .pieceBox:hover {
+  background: #262626;
+  transform: translate(0, -5px);
+  transition: all ease 0.2s;
+}
+.armorContentGrid .pieceBox .armorName {
+  font-size: 20px;
+  line-height: 20px;
+  padding-bottom: 20px;
+  transition: all ease 0.15s;
+  color: rgba(207, 239, 29, 1);
+  text-decoration: underline;
+  text-underline-position: under;
+  text-align: center;
+}
+.armorContentGrid .pieceBox .slotImgs {
+  padding-left: 10px;
+}
+.armorContentGrid .pieceBox .slotImgs img {
+  width: 20px;
+  transition: all ease 0.15s;
+  margin-right: 4px;
+}
+.armorContentGrid .pieceBox .armorImgs {
+  padding: 10px 0;
+  text-align: center;
+}
+.armorContentGrid .pieceBox .armorImgs img {
+  width: 80px;
+  padding: 10px;
+  transition: all ease 0.15s;
+}
+.armorContentGrid .pieceBox .child_data {
+  color: white;
+}
+.armorContentGrid .pieceBox .child_data .child_title {
+  text-align: center;
+  font-size: 18px;
+  padding-bottom: 10px;
+  letter-spacing: 2px;
+}
+.armorContentGrid .pieceBox .child_flexCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.armorContentGrid .pieceBox .child_flexCont .radialHeader {
+  padding-bottom: 10px;
+}
+.armorContentGrid .pieceBox .child_flexCont .radialProgress {
+  width: 60px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* FOR PROGRESS STYLING */
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #cfee1d;
+}
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: gray;
+}
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #cfee1d;
+  transform: translate(0, 5px);
+}
+
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .armorContentGrid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+  }
+  .armorContentGrid .pieceBox .armorName {
+    font-size: 15px;
+    line-height: 15px;
+    transition: all ease 0.15s;
+  }
+  .armorContentGrid .pieceBox .slotImgs img {
+    width: 15px;
+    margin-right: 2px;
+    transition: all ease 0.15s;
+  }
+  .armorContentGrid .pieceBox .armorImgs img {
+    width: 30px;
+    height: auto;
+    padding: 0 5px;
+    transition: all ease 0.15s;
+  }
+}

@@ -1,32 +1,42 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import RouteTitle from '../Components/RouteTitle';
+import { connect } from 'react-redux';
+import { getSpecArmorSet } from 'src/Actions';
+import Loading from 'src/Components/Loading';
+import ArmorContent from 'src/Components/Armors/ArmorContent';
 
 class Armor extends Component {
+  componentDidMount = () => {
+    const { armorId } = this.props.match.params;
+    this.props.getSpecArmorSet(armorId);
+  };
   render() {
+    window.scrollTo(0, 0);
+    const { armorData, loading } = this.props.data;
+
     return (
       <div
         style={{
           width: '100%',
-          height: '100vh'
+          height: loading ? '100vh' : '100%'
         }}>
-        <RouteTitle titleText="Armor Sets"></RouteTitle>
-        <section
-          style={{
-            color: 'white',
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%,-50%)',
-            textTransform: 'uppercase',
-            fontSize: '20px',
-            fontFamily: 'MedievalSharp, cursive'
-          }}>
-          Page under development
-        </section>
+        {armorData.length !== 0 ? (
+          <ArmorContent armor={armorData}></ArmorContent>
+        ) : (
+          <Loading loadingText="armor sets"></Loading>
+        )}
       </div>
     );
   }
 }
 
-export default withRouter(Armor);
+const mapStateToProps = state => {
+  return { data: state.armors };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getSpecArmorSet }
+  )(Armor)
+);

@@ -18,7 +18,6 @@ const romanChars = rankNum => {
 const CharmContent = props => {
   const { charm } = props;
   const charmie = charm[0];
-  // console.log(charmie);
 
   return (
     <div className="charmContent ui container animated fadeIn faster">
