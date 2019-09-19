@@ -15,7 +15,7 @@ import ErrorPage from './Pages/ErrorPage';
 import Charms from './Pages/Charms';
 import Charm from './Pages/Charm';
 
-const App = () => {
+const App = props => {
   return (
     <div>
       <Switch>

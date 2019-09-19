@@ -20,7 +20,7 @@ class Armor extends Component {
           width: '100%',
           height: loading ? '100vh' : '100%'
         }}>
-        {armorData.length !== 0 ? (
+        {armorData.length !== 0 && Array.isArray(armorData) && !loading ? (
           <ArmorContent armor={armorData}></ArmorContent>
         ) : (
           <Loading loadingText="armor sets"></Loading>

@@ -157,7 +157,7 @@ export const getCharms = () => async dispatch => {
 export const getSpecCharm = id => async (dispatch, getState) => {
   dispatch(loading());
   const charms = getState().charms;
-
+  console.log(charms);
   if (charms.charmData.length !== 0 && charms.charmData.length > 2) {
     const charmEle = charms.charmData.filter(charm => charm.id === Number(id));
 
@@ -173,6 +173,66 @@ export const getSpecCharm = id => async (dispatch, getState) => {
 
 /* -------------------------------------------------------------------------- */
 // START ARMOR
+const addSlots = armor => {
+  armor.pieces.forEach(piece => {
+    if (piece.slots.length === 0) {
+      return;
+    }
+    piece.slots.forEach(slot => {
+      switch (slot.rank) {
+        case 1:
+          Object.assign(slot, {
+            url:
+              'https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gem_level_1.png'
+          });
+          break;
+        case 2:
+          Object.assign(slot, {
+            url:
+              'https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gem_level_2.png'
+          });
+          break;
+        case 3:
+          Object.assign(slot, {
+            url:
+              'https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gem_level_3.png'
+          });
+          break;
+        default:
+          return;
+      }
+    });
+  });
+};
+const addSlot = armor => {
+  armor.slots.forEach(slot => {
+    if (armor.slots.length === 0) {
+      return;
+    }
+    switch (slot.rank) {
+      case 1:
+        Object.assign(slot, {
+          url:
+            'https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gem_level_1.png'
+        });
+        break;
+      case 2:
+        Object.assign(slot, {
+          url:
+            'https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gem_level_2.png'
+        });
+        break;
+      case 3:
+        Object.assign(slot, {
+          url:
+            'https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gem_level_3.png'
+        });
+        break;
+      default:
+        return;
+    }
+  });
+};
 
 export const getLowArmorSets = () => async dispatch => {
   dispatch(loading());
@@ -200,15 +260,25 @@ export const getSpecArmorSet = id => async (dispatch, getState) => {
 
   if (data.armorData.length !== 0 && data.armorData.length > 2) {
     const armorEle = data.armorData.filter(armor => armor.id === Number(id));
+    addSlots(armorEle[0]);
 
     dispatch({ type: 'GET_SPEC_ARMOR_SET', payload: armorEle[0] });
   } else {
     const response = await monsterhunter.get(`/armor/sets/${id}`);
+    addSlots(response.data);
 
     dispatch({ type: 'GET_SPEC_ARMOR_SET', payload: response.data });
   }
 };
 
+export const getExactArmor = id => async dispatch => {
+  dispatch(loading());
+
+  const response = await monsterhunter.get(`/armor/${id}`);
+  addSlot(response.data);
+
+  dispatch({ type: 'GET_EXACT_ARM', payload: response.data });
+};
 // END ARMOR
 /* -------------------------------------------------------------------------- */
 

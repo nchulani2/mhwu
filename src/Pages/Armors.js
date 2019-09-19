@@ -63,7 +63,6 @@ class Armors extends Component {
   render() {
     const { armorData, lowRank, highRank, loading } = this.props.data;
 
-    console.log(armorData);
     return (
       <div
         style={{
@@ -85,7 +84,10 @@ class Armors extends Component {
             handleMonsties={this.handleArmors}
             currState={lowRank}></ApiButton>
         </div>
-        {armorData.length !== 0 && armorData.length > 2 && !loading ? (
+        {armorData.length !== 0 &&
+        armorData.length > 2 &&
+        Array.isArray(armorData) &&
+        !loading ? (
           <div>
             <InputFilter
               filterResults={this.filterArmorResults}

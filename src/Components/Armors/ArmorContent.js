@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import 'src/Style/ArmorContent.css';
 
@@ -16,41 +15,8 @@ const getRandomKey = length => {
   return result;
 };
 
-const addSlots = pieces => {
-  pieces.forEach(piece => {
-    if (piece.slots.length === 0) {
-      return;
-    }
-    piece.slots.forEach(slot => {
-      switch (slot.rank) {
-        case 1:
-          Object.assign(slot, {
-            url:
-              'https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gem_level_1.png'
-          });
-          break;
-        case 2:
-          Object.assign(slot, {
-            url:
-              'https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gem_level_2.png'
-          });
-          break;
-        case 3:
-          Object.assign(slot, {
-            url:
-              'https://monsterhunterworld.wiki.fextralife.com/file/Monster-Hunter-World/gem_level_3.png'
-          });
-          break;
-        default:
-          return;
-      }
-    });
-  });
-};
-
 const ArmorContent = props => {
   const armories = props.armor[0];
-  addSlots(armories.pieces);
 
   return (
     <div className="armorContent ui container animated fadeIn faster">
@@ -60,7 +26,7 @@ const ArmorContent = props => {
           armories.pieces.map(armorPiece => (
             <Link
               key={armorPiece.id}
-              to={`armors/${armories.id}/${armorPiece.id}`}>
+              to={`/armors/${armories.id}/${armorPiece.id}`}>
               <div className="pieceBox">
                 <div className="armorName">
                   {armorPiece.name}
@@ -77,7 +43,7 @@ const ArmorContent = props => {
                   </span>
                 </div>
 
-                {armorPiece.assets !== null && armorPiece.assets !== null ? (
+                {armorPiece.assets !== null ? (
                   <div className="armorImgs">
                     <img
                       src={armorPiece.assets.imageMale}
@@ -94,47 +60,29 @@ const ArmorContent = props => {
                     className="child_flexCont"
                     style={{ marginBottom: '30px' }}>
                     <div>
-                      <div className="radialHeader">Base</div>
-                      <div className="radialProgress">
-                        <CircularProgressbar
-                          value={armorPiece.defense.base}
-                          text={
-                            armorPiece.defense.base
-                              ? armorPiece.defense.base
-                              : 'N/a'
-                          }
-                          maxValue={150}
-                        />
+                      <div className="child_header">Base</div>
+                      <div className="child_value">
+                        {armorPiece.defense.base
+                          ? armorPiece.defense.base
+                          : 'N/a'}
                       </div>
                     </div>
 
                     <div>
-                      <div className="radialHeader">Max</div>
-                      <div className="radialProgress">
-                        <CircularProgressbar
-                          value={armorPiece.defense.max}
-                          text={
-                            armorPiece.defense.max
-                              ? armorPiece.defense.max
-                              : 'N/a'
-                          }
-                          maxValue={150}
-                        />
+                      <div className="child_header">Max</div>
+                      <div className="child_value">
+                        {armorPiece.defense.max
+                          ? armorPiece.defense.max
+                          : 'N/a'}
                       </div>
                     </div>
 
                     <div>
-                      <div className="radialHeader">Augmented</div>
-                      <div className="radialProgress">
-                        <CircularProgressbar
-                          value={armorPiece.defense.augmented}
-                          text={
-                            armorPiece.defense.augmented
-                              ? armorPiece.defense.augmented
-                              : 'N/a'
-                          }
-                          maxValue={150}
-                        />
+                      <div className="child_header">Augmented</div>
+                      <div className="child_value">
+                        {armorPiece.defense.augmented
+                          ? armorPiece.defense.augmented
+                          : 'N/a'}
                       </div>
                     </div>
                   </div>
@@ -146,71 +94,29 @@ const ArmorContent = props => {
                     className="child_flexCont"
                     style={{ marginBottom: '20px' }}>
                     <div>
-                      <div className="radialHeader">Fire</div>
-                      <div className="radialProgress">
-                        <CircularProgressbar
-                          value={armorPiece.resistances.fire}
-                          text={
-                            armorPiece.resistances.fire === 0
-                              ? '0'
-                              : armorPiece.resistances.fire
-                          }
-                          maxValue={6}
-                          styles={{
-                            path: {
-                              stroke: '#FC420B'
-                            },
-                            text: {
-                              fill: '#FC420B'
-                            }
-                          }}
-                        />
+                      <div className="child_header">Fire</div>
+                      <div className="child_value" style={{ color: '#FF3E04' }}>
+                        {armorPiece.resistances.fire === 0
+                          ? '0'
+                          : armorPiece.resistances.fire}
                       </div>
                     </div>
 
                     <div>
-                      <div className="radialHeader">Water</div>
-                      <div className="radialProgress">
-                        <CircularProgressbar
-                          value={armorPiece.resistances.water}
-                          text={
-                            armorPiece.resistances.water === 0
-                              ? '0'
-                              : armorPiece.resistances.water
-                          }
-                          maxValue={6}
-                          styles={{
-                            path: {
-                              stroke: '#7994B1'
-                            },
-                            text: {
-                              fill: '#7994B1'
-                            }
-                          }}
-                        />
+                      <div className="child_header">Water</div>
+                      <div className="child_value" style={{ color: '#7994AE' }}>
+                        {armorPiece.resistances.water === 0
+                          ? '0'
+                          : armorPiece.resistances.water}
                       </div>
                     </div>
 
                     <div>
-                      <div className="radialHeader">Thunder</div>
-                      <div className="radialProgress">
-                        <CircularProgressbar
-                          value={armorPiece.resistances.thunder}
-                          text={
-                            armorPiece.resistances.thunder === 0
-                              ? '0'
-                              : armorPiece.resistances.thunder
-                          }
-                          maxValue={6}
-                          styles={{
-                            path: {
-                              stroke: '#EBF63D'
-                            },
-                            text: {
-                              fill: '#EBF63D'
-                            }
-                          }}
-                        />
+                      <div className="child_header">Thunder</div>
+                      <div className="child_value" style={{ color: '#F3FA2A' }}>
+                        {armorPiece.resistances.thunder === 0
+                          ? '0'
+                          : armorPiece.resistances.thunder}
                       </div>
                     </div>
                   </div>
@@ -218,47 +124,19 @@ const ArmorContent = props => {
                     className="child_flexCont"
                     style={{ justifyContent: 'space-evenly' }}>
                     <div>
-                      <div className="radialHeader">Dragon</div>
-                      <div className="radialProgress">
-                        <CircularProgressbar
-                          value={armorPiece.resistances.dragon}
-                          text={
-                            armorPiece.resistances.dragon === 0
-                              ? '0'
-                              : armorPiece.resistances.dragon
-                          }
-                          maxValue={6}
-                          styles={{
-                            path: {
-                              stroke: '#6870AD'
-                            },
-                            text: {
-                              fill: '#6870AD'
-                            }
-                          }}
-                        />
+                      <div className="child_header">Dragon</div>
+                      <div className="child_value" style={{ color: '#6271B2' }}>
+                        {armorPiece.resistances.dragon === 0
+                          ? '0'
+                          : armorPiece.resistances.dragon}
                       </div>
                     </div>
                     <div>
-                      <div className="radialHeader">Ice</div>
-                      <div className="radialProgress">
-                        <CircularProgressbar
-                          value={armorPiece.resistances.ice}
-                          text={
-                            armorPiece.resistances.ice === 0
-                              ? '0'
-                              : armorPiece.resistances.ice
-                          }
-                          maxValue={6}
-                          styles={{
-                            path: {
-                              stroke: '#769EA5'
-                            },
-                            text: {
-                              fill: '#769EA5'
-                            }
-                          }}
-                        />
+                      <div className="child_header">Ice</div>
+                      <div className="child_value" style={{ color: '#80A5AB' }}>
+                        {armorPiece.resistances.ice === 0
+                          ? '0'
+                          : armorPiece.resistances.ice}
                       </div>
                     </div>
                   </div>

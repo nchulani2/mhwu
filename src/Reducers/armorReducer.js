@@ -25,6 +25,8 @@ export default (state = initialState, action) => {
       };
     case 'GET_SPEC_ARMOR_SET':
       return { ...state, armorData: [action.payload], loading: false };
+    case 'GET_EXACT_ARM':
+      return { ...state, armorData: action.payload, loading: false };
     case 'LOADING':
       return { ...state, loading: true };
     default:

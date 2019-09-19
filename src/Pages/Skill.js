@@ -21,7 +21,7 @@ class Charm extends Component {
           width: '100%',
           height: loading ? '100vh' : '100%'
         }}>
-        {skillData.length !== 0 ? (
+        {skillData.length !== 0 && !loading ? (
           <SkillContent skill={skillData}></SkillContent>
         ) : (
           <Loading loadingText="skill"></Loading>

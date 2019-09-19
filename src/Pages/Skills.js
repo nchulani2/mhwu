@@ -45,7 +45,7 @@ class Skills extends Component {
           padding: '90px 0'
         }}>
         <RouteTitle titleText="skills"></RouteTitle>
-        {skillData.length !== 0 && !loading ? (
+        {skillData.length !== 0 && skillData.length > 2 && !loading ? (
           <div>
             <InputFilter
               filterResults={this.filterSkillsResults}
