@@ -5,6 +5,7 @@ import {
   BlightList
 } from 'src/Components/Monsters/MonsterExports';
 import { SkillIcons } from 'src/Components/Skills/SkillExports';
+import { async } from 'q';
 
 // import { ElementalList } from '../Components/MonsterExports';
 
@@ -282,6 +283,15 @@ export const getExactArmor = id => async dispatch => {
 // END ARMOR
 /* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
+// START ITEMS
+
+export const getSpecItem = id => async dispatch => {
+  console.log(id);
+};
+
+/* -------------------------------------------------------------------------- */
+// END ITEMS
 const loading = () => dispatch => {
   dispatch({ type: 'LOADING' });
 };
