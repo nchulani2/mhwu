@@ -5,7 +5,6 @@ import {
   BlightList
 } from 'src/Components/Monsters/MonsterExports';
 import { SkillIcons } from 'src/Components/Skills/SkillExports';
-import { async } from 'q';
 
 // import { ElementalList } from '../Components/MonsterExports';
 

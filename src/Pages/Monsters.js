@@ -81,18 +81,7 @@ class Monsters extends Component {
             <InputFilter
               filterResults={this.filterMonstersResults}
               placeholderText="monster"></InputFilter>
-            <div
-              style={{
-                color: 'white',
-                textAlign: 'center',
-                fontFamily: 'MedievalSharp, cursive',
-                fontSize: '15px',
-                letterSpacing: '1px',
-                padding: '0 20px 20px 20px'
-              }}>
-              For mobile users, double tap to view a monster's particular
-              information
-            </div>
+
             <MonsterList monsters={monsterData}></MonsterList>
             <div className="apiButtonsContainer">
               <ApiButton

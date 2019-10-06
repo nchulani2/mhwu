@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactHowler from 'react-howler';
 import { withRouter } from 'react-router-dom';
-import TitleScreenSound from '../Sounds/soundmhw.ogg';
+import TitleScreenSound from '../Audio/soundmhw.ogg';
 import '../Style/Sound.css';
 
 class Nav extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavSvg from './NavSvg';
 import ReactHowler from 'react-howler';
-import MenuMhwSound from '../Sounds/nav_menu_sound.ogg';
+import MenuMhwSound from '../Audio/nav_menu_sound.ogg';
 import Sound from './Sound';
 import { Link, withRouter } from 'react-router-dom';
 import '../Style/Nav.css';
