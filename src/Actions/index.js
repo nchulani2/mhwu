@@ -120,6 +120,7 @@ export const getSkills = () => async dispatch => {
   const skills = _.chain(response.data)
     .sortBy('name')
     .value();
+   console.log(response.data)
   addSkillIcon(response.data);
 
   dispatch({ type: 'GET_SKILLS', payload: skills });

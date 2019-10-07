@@ -4,6 +4,7 @@ import { withRouter, Link } from 'react-router-dom';
 
 class SkillsList extends Component {
   handleSkills = skill => {
+   
     return (
       <Link to={`/skills/${skill.id}`} key={skill.id} className="filterSkills">
         <div className="skillComp">
